@@ -1,0 +1,18 @@
+[package]
+name = "torn_client"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Async Rust client for the Torn API with rate limiting and key balancing"
+
+[dependencies]
+torn_models = { path = "../torn_models" }
+tokio = { workspace = true }
+reqwest = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+urlencoding = "2.1"
+
+[dev-dependencies]
+tokio = { workspace = true, features = ["full", "test-util"] }

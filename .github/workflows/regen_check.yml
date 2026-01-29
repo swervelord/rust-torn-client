@@ -1,0 +1,39 @@
+name: Regen Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  regen-check:
+    name: Verify regeneration is clean
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run regen pipeline
+        run: python scripts/regen.py
+
+      - name: Check for uncommitted changes
+        run: |
+          git diff --exit-code || {
+            echo ""
+            echo "============================================="
+            echo "ERROR: Regeneration produced uncommitted changes."
+            echo "Run 'python scripts/regen.py' locally and commit the results."
+            echo "============================================="
+            echo ""
+            git diff --stat
+            exit 1
+          }
+          echo "Regeneration is clean — no diff."

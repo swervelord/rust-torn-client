@@ -1,0 +1,28 @@
+# Rust build artifacts
+/target/
+**/target/
+
+# Cargo lock is committed for applications/workspaces
+# Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+
+# Environment / secrets
+.env
+.env.*
+
+# Downloaded spec (kept for debugging but regen always re-fetches)
+# openapi/latest.json is intentionally tracked for CI diffing

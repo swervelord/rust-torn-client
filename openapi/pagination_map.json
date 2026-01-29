@@ -1,0 +1,4942 @@
+{
+  "01c192f9b41ce29372df54667bea2b43": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 50,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/search"
+  },
+  "0258963246159d1e3e54547c32aac7c8": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/territorywars"
+  },
+  "03bcd69dc16d287da5a5c1239b1e35ae": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/honors"
+  },
+  "03d304564e4f84e3f258e5b8059bcc22": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/members"
+  },
+  "0452cb8fd031b80d3b7e9fcb7b0bdf09": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/property"
+  },
+  "06198712e3cfdee6b3d5ea11fb6754ef": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/merits"
+  },
+  "065bcbaa654fc44ce7b8ea574b84f7b9": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/lookup"
+  },
+  "0b35f182b0a14eccc166ec542f1e7234": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/weaponexp"
+  },
+  "0d6dae59c9b3419c18d2a4ca0da757e6": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/key/log"
+  },
+  "0f4c4c07e1dfacbda689b2a0d62ccda4": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "ASC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/items"
+  },
+  "10a22547e0c48046ade435e0b63dfe55": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/events"
+  },
+  "17e406574ff1eb686891c0fb0e15343a": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market/{propertyTypeId}/properties"
+  },
+  "17f99b99fac9601887dd1d001b95bb08": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/forumfeed"
+  },
+  "1846c4cf1e6878553e36571dc9cac29f": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn"
+  },
+  "1da64889366de71140f2c15ad14b67b1": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/news"
+  },
+  "20c7b7a3f7395c2afa73597327f401a3": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/messages"
+  },
+  "21915cf0228ce3677261cdce27fb39e2": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/forum"
+  },
+  "21a251c2ec9f6c93b89fb715196bb8be": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{chainId}/chainreport"
+  },
+  "22a00095ad734485b6dacdc12c1f62ff": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market/lookup"
+  },
+  "242cd6844d92aec0223d9c5c88e66403": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/skills"
+  },
+  "273c3a96077332793a1b6ffe21c10218": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/equipment"
+  },
+  "279e811630fa497fb2cae268c70992e2": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/bounties"
+  },
+  "2a45b6d9d77224d9a1e13d0b698f6c4b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/property"
+  },
+  "2a67e4b84813ee97a398be48e544abf5": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/factionhof"
+  },
+  "2baae03f953cd57fd5303dd1d04efae0": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/lookup"
+  },
+  "2ceb7f08dc5f06a01d1fbe50425414c1": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/forumfriends"
+  },
+  "2e799e84fcfa9b722f856e859df909f8": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/itemammo"
+  },
+  "2f68d7e04d218e26005be3eeca6de583": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/logcategories"
+  },
+  "3046478bdee661f77bace171f60de62f": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/job"
+  },
+  "310ed4d7970121be1c01fc6cb8c14f49": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/basic"
+  },
+  "37f1828422f3080da21f9eb4aa576686": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 250,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/territory"
+  },
+  "37f1e394f9d6e3f6fd436fae3e9b9ac4": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{crimeId}/crimes"
+  },
+  "388e8008ae1c2645819af76d71ef92a5": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    ],
+    "path": "/user/personalstats"
+  },
+  "38cd1a2c47e266a703a13e0dd401f4a9": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market/{propertyTypeId}/rentals"
+  },
+  "39826224a85f3a0dde89080ce7489685": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/ammo"
+  },
+  "39b8ce36e3fffc9e2aa1d0aed9ebccda": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/racing"
+  },
+  "3acc98a3016974b786cb01e04e1ced04": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/attacks"
+  },
+  "3c6f8acbfcb398592e3f3b65ab91a40f": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/organizedcrime"
+  },
+  "3c847eb1325040798f37a7492108e094": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/revives"
+  },
+  "3ca2c0319f960b728ffece8e322cf40f": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/balance"
+  },
+  "3ce15c1a0fa2f1c2c35a88f659f1f4b3": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/job"
+  },
+  "3ff933d6a90488c30fb55a9d25e0f2d8": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/competition"
+  },
+  "40cf7455b4cf6e8cc08e1b82125fad53": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/icons"
+  },
+  "40eb7627818eb777fdc713ed78209c6b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/contributors"
+  },
+  "422876deda064e2f3a2cc3c4bf6d73a9": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market/bazaar"
+  },
+  "423c130a5cdf6bc801c42537c07fddec": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/property/timestamp"
+  },
+  "423ceffcad89f9ee7abfb85bed32b692": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 20,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/forumposts"
+  },
+  "481c6645dae298b54f0630ef7de81dba": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/forumthreads"
+  },
+  "486fcda26ed1aa6aba8ec7091080723b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/revives"
+  },
+  "4b7322594732b4e263f2e612f648e6a4": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/honors"
+  },
+  "4be921a67d32b5e82c68835ef56175d0": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/racing/races"
+  },
+  "4cc4cc6fa3764f9732db9589e91d7739": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/calendar"
+  },
+  "4dce518364dad91fb3503e0382adfadf": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{id}/territory"
+  },
+  "4e8aeafde7b5fc9918d166cda150fa91": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{territoryWarId}/territorywarreport"
+  },
+  "4f5d624a86e2d389a7a738b6b3ce8c9e": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/rankedwars"
+  },
+  "54c84ce84920ff49fac183f7ab7480cb": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market/{id}/auctionhouse"
+  },
+  "574a416ca46717830f03a2f685955b87": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/properties"
+  },
+  "5b6646714e5ae1cc397bdec877f55691": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{id}/rankedwars"
+  },
+  "5c1d150273feb0c553f6cfb96071bf1b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/medals"
+  },
+  "5e94a9ab2363bed4a7dfdef02ce135f6": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/virus"
+  },
+  "5fbc62db3b9380b155d7e33100620da7": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/racing/{trackId}/records"
+  },
+  "601f7b38ac25e1ac47b33fb64120198b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/properties"
+  },
+  "614a2f2bdd7fb6df778b7657c75d1113": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/chainreport"
+  },
+  "61c2d0bc6980cf8d730fe48eb81f417b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/attacklog"
+  },
+  "627df4d7d8b91c62dacb66ff373aab5c": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/timestamp"
+  },
+  "62b16119fb11b6a4d12864987f2a7223": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/bars"
+  },
+  "635ca1ff9b7062b8d8e0bf00252479cd": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market/auctionhouse"
+  },
+  "67622543dbbc4857f1ea575be5af7fcd": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{id}/raids"
+  },
+  "68f0493291a1ad38d42053d861b1bba5": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/discord"
+  },
+  "6a2b0604d0ebe31933f93facfa69f171": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/raids"
+  },
+  "6ac851069df2c33e53cc69eecae44f1e": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    ],
+    "path": "/user/{id}/personalstats"
+  },
+  "6ba15a813fe1cc014564e9dba892e022": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/reports"
+  },
+  "6bb6623979be4fa4149f0eab3fda3c53": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/discord"
+  },
+  "6c73f06efc23903e15343c95e426b7ad": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/notifications"
+  },
+  "6e4507cc442d6f099d0170b78a35bf8d": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/racing/tracks"
+  },
+  "6f8cffcdae9fe97110b8d46c3991f109": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/timestamp"
+  },
+  "715cb3a4df0a9bf8094a53dc3259b633": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/forum/{categoryIds}/threads"
+  },
+  "72c4c23b9d60172e696c9a104e56b7bd": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/icons"
+  },
+  "72e5db8a773908fedff4bb002f3f4406": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/crimes"
+  },
+  "76925256951bb63fd28534c8c479b27b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/racing/{raceId}/race"
+  },
+  "76ce672d50a66fc0a832f9088e5436af": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{id}/territorywars"
+  },
+  "77dae3b930e2e2f9f7608567db0b94f4": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/positions"
+  },
+  "79b21191b87da275f3b87a7a1a233d04": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/forum/categories"
+  },
+  "7be904fbcb98a7bb724f0c5b02a37a25": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/{logCategoryId}/logtypes"
+  },
+  "7d6d988f4aa00b9526c082c2b4247743": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/jobpoints"
+  },
+  "806d9dc7e5fcf9e1ee9c3cdf7f035392": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/stats"
+  },
+  "807adc6a64d86e07d629a15dde8c6105": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/forumthreads"
+  },
+  "80ad6ebd50b6c075427c04d2f54d7af5": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/itemmods"
+  },
+  "8254489388603bf1b21740e6f71bef06": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market/{id}/bazaar"
+  },
+  "8551280aaaf9819aa94be5c469a523de": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 1000,
+          "format": "int32",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/attacksfull"
+  },
+  "87bd73ddaf3749bce7cbf5aa28e921e2": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/property/{id}/property"
+  },
+  "87fe6e3a7ec186e108922fed781c8d6d": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/property/lookup"
+  },
+  "8820cd889afde899353037ca5a0f9a07": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/revivesFull"
+  },
+  "8859066800e0652740bfb17f8ecd15a2": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/newmessages"
+  },
+  "8bd16be9aa517fedf717c9a79ff47e2c": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/racing/lookup"
+  },
+  "8c3acc9ecc8ec39baac5d2be8235d458": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/workstats"
+  },
+  "8e78be3fa3d353f59f8654fcc1c2199c": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market"
+  },
+  "8fcbe4dcf8a3a28e31e2eaab877feea1": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/itemmarket"
+  },
+  "911d56b49218cef2102be3de73f82f01": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/hof"
+  },
+  "92c7e86065c3d18b000e825aa6688eed": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/forumsubscribedthreads"
+  },
+  "945b8ac03944ca79eb0ae8a640aeab3b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/newevents"
+  },
+  "94dfc0c0663c9dc53241abbc59e39597": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/faction"
+  },
+  "959a3a302d736b416ec1edd4def8fe91": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/hof"
+  },
+  "959f415abf48cb753414cec179b1b039": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/upgrades"
+  },
+  "98a38ba406509483a08bde6bee6f676c": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/missions"
+  },
+  "992f8b71435ca78ba96f1e5298c25152": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/education"
+  },
+  "99a899c0094645475fd6254b423fea43": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{id}/members"
+  },
+  "9a48477c16e86235efce00a11d56510f": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{raidWarId}/raidreport"
+  },
+  "9c5eeb1aebb102b7c62fab11974c359a": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/forum/{threadId}/posts"
+  },
+  "9f7dccb023d81a8da7f5f6a359658a64": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/applications"
+  },
+  "a09da2d5f951a49d974dbec3149b3a24": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{id}/basic"
+  },
+  "a20c3fcd0afc00cc428f4a8c24467356": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/basic"
+  },
+  "a2f817c8fb95707aa71a7b28bed08a56": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/{ids}/medals"
+  },
+  "a4618a3901c01413c14b75e984495a9b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/forum/{threadId}/thread"
+  },
+  "a4fedadcac3aada40131288e4e3d6c2d": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "ASC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/{ids}/items"
+  },
+  "a6ce3192de2a723c7eedef7951eeb258": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/elimination"
+  },
+  "a72308321da0c4a2c31c60218acc7a85": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/timestamp"
+  },
+  "a775ca7831f4cad88c308be28f50e597": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{id}/hof"
+  },
+  "ab5b44b00bf70d7a8587a3c2c9deeb17": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/racing/cars"
+  },
+  "ad0c908328835d9672d157fe84eac884": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market/timestamp"
+  },
+  "ad45b0f57a1109977f605581fc294bda": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/{crimeId}/subcrimes"
+  },
+  "ae7f06db4618d3e7927fd700cfa58f16": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/warfare"
+  },
+  "aee5679a81c6a7bcd3862c0aafd6b558": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/chain"
+  },
+  "af17d832a1ff8c1d327f262886b39fec": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/merits"
+  },
+  "b129b86b2f3902d6f875da827d0dee17": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/travel"
+  },
+  "b2395a36b6f5668ade16f460a593b236": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/battlestats"
+  },
+  "b31cce9916e77431c08822844a0dbf2b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/wars"
+  },
+  "b4867db9b02fa7dcd31b2073f2a936ce": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{crimeId}/crime"
+  },
+  "b64b8cf22cd9e9c8916bc01439f6b069": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/organizedcrimes"
+  },
+  "b73ff4e5a9dd28905060da24ca76efde": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/crimes"
+  },
+  "ba6e495bf0c6b2e87db337c1a09f4852": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/races"
+  },
+  "bb6524988f52a1e75729c05a825b91c8": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/{id}/itemdetails"
+  },
+  "bcda13a4bb3c826ee6c79fb6209d7b69": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/money"
+  },
+  "bdbbefa4dc1cd7f146f500816ccbec1a": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/{ids}/honors"
+  },
+  "bf56fb8aba4d6810e9b96402e25b931d": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 500,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/territoryownership"
+  },
+  "c0a6c91697cd1683c39b3c0649a18ec8": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/lookup"
+  },
+  "c28901b60d97e6ddf7d07d7a195f022a": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market/{id}/auctionhouselisting"
+  },
+  "c370823454d5ea28fc0df9a5b6a24c54": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{id}/wars"
+  },
+  "c44f572f4672071280a28e6f8217c3b6": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/properties"
+  },
+  "c6ccbb0a05ebf3b307c82a4c89275e52": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/key"
+  },
+  "c6e00a242c309a53a98852b225de5e0b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/medals"
+  },
+  "c82d282102d0d4f54768a6a465639673": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/faction"
+  },
+  "c85fd102a25aaec3aa98611d0da6c219": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/bounties"
+  },
+  "c9e76cf48aa3c4bac4c8b33f1c0c9a17": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/racing/carupgrades"
+  },
+  "cb5b38ba64c389e706526df8bc8af9b6": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/attacks"
+  },
+  "cc3a21ed98c1a80ffeeda4e33c75b9a0": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 20,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/forumposts"
+  },
+  "ccc5b888a920b5c707d97c29b38d6e43": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/{id}/eliminationteam"
+  },
+  "ce480599312126b8a5d77ced3ab8caa8": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user"
+  },
+  "d2d64a69cedfdce19a50eff117e2c166": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/forum/threads"
+  },
+  "d4cb87bc2502a517c49525b910a6dd82": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/logtypes"
+  },
+  "db49842d88e193777dc695e54769113e": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{rankedWarId}/rankedwarreport"
+  },
+  "dc3deee7629610931240be337c47a8ee": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/enlistedcars"
+  },
+  "dd88ca1ffafed80457916da5298a3422": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{id}/chains"
+  },
+  "dd89e28b1f1ed88853b09ecc982e4e66": {
+    "method": "GET",
+    "paginationStyle": "offset_limit",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction"
+  },
+  "dda77cdddd962fb60f1beed24330ca93": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/profile"
+  },
+  "dfc0adb55af4aeeeebc2d82309c71eea": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 100,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/chains"
+  },
+  "e104b0b606664d06d9638111702301f3": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/hof"
+  },
+  "e1b2c1039ea41f7607b9c94660fc72cb": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/racingrecords"
+  },
+  "e6d387f16971004628eeca2d6473f825": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/key/info"
+  },
+  "e8bd37f10cc5e0e8d6694bb306f3a1e4": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/reports"
+  },
+  "e93ba44fcc7ad2eb3063dec7469ee2f6": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 50,
+          "format": "int32",
+          "maximum": 50,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "ASC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/list"
+  },
+  "e945ec5e68a2794a7a7310000fbfba99": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/profile"
+  },
+  "e95c96ef528248341647a5704630320e": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/calendar"
+  },
+  "e995691fd9845c8b4a91f065ac9c8420": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 1000,
+          "format": "int32",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/attacksfull"
+  },
+  "e9a7cd580a231f5a31212d4601a5f686": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/competition"
+  },
+  "eb1ae216aa2949a8db0702df474d174c": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/racing/timestamp"
+  },
+  "eb5eca5c6b978ee23ef74035c14ff4cc": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/bounties"
+  },
+  "ec72c2a8cd96c88e4d228221bf6bf42f": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/forum/timestamp"
+  },
+  "ec8f82e15a321adbb20e615024d9dff6": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/{id}/chain"
+  },
+  "f0805d0b7ad26c62ddd2fa8d0d332ba4": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/forum/lookup"
+  },
+  "f17a4064779e8de5200238816c233c02": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 1000,
+          "format": "int32",
+          "maximum": 1000,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "sort",
+        "required": false,
+        "schema": {
+          "default": "DESC",
+          "enum": [
+            "DESC",
+            "ASC"
+          ],
+          "type": "string"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/revivesFull"
+  },
+  "f354f40bc5d6cbadf57fdecb453c976f": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "to",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "from",
+        "required": false,
+        "schema": {
+          "format": "int32",
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/log"
+  },
+  "f36ce18449194dd9d2b62bccd4bb8343": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/property"
+  },
+  "f45431b364546bb20b0ca909e9ac686e": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/torn/factiontree"
+  },
+  "f504d71a34f5cb3398bee32d6f67ee0e": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/refills"
+  },
+  "f535a33bf405e7bd60918e536f827e5c": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "limit",
+        "required": false,
+        "schema": {
+          "default": 20,
+          "format": "int32",
+          "maximum": 100,
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "offset",
+        "required": false,
+        "schema": {
+          "default": 0,
+          "format": "int32",
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/market/{id}/itemmarket"
+  },
+  "f750d219e54329ae300c4db384dd5dcd": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/rackets"
+  },
+  "f86d41c9434e42d22f9ff46ecc4e5b88": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/{id}/hof"
+  },
+  "fa6b3fbb14e5f3a71279b058bd751754": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/territory"
+  },
+  "facf1ddeef80a440229941f49aec6ccc": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/jobranks"
+  },
+  "fb363bf0e1d54296bd4d5dd554ad9825": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/faction/basic"
+  },
+  "fddc6adc5139d8a1e0a151d80816dba7": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/education"
+  },
+  "fe1a505c4c4b83c667fa9e7313045d8b": {
+    "method": "GET",
+    "paginationStyle": "metadata_links",
+    "params": [
+      {
+        "in": "query",
+        "name": "timestamp",
+        "required": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    ],
+    "path": "/user/cooldowns"
+  }
+}

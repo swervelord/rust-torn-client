@@ -1,0 +1,13 @@
+[package]
+name = "torn_models"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+description = "Generated data models for the Torn API (from OpenAPI spec)"
+
+# DO NOT add non-generated code to this crate.
+# All source under src/generated/ is machine-generated. See GENERATED_POLICY.md.
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
