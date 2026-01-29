@@ -75,10 +75,10 @@ pub struct ForumThreadUserExtended {
     pub id: ForumThreadId,
     pub is_locked: bool,
     pub is_sticky: bool,
-    pub last_post_time: LastPostTime,
-    pub last_poster: LastPoster,
+    pub last_post_time: Option<i32>,
+    pub last_poster: Option<ForumThreadAuthor>,
         /// Available only when requesting data for yourself (no id or your id) with at least 'Minimal' access type key.
-    pub new_posts: NewPosts,
+    pub new_posts: Option<i32>,
     pub posts: i32,
     pub rating: i32,
     pub title: String,
@@ -240,7 +240,7 @@ pub struct MissionRewardDetailsAmmo {
 pub struct MissionRewardDetailsItem {
     pub id: ItemId,
     pub name: String,
-    pub sub_type: SubType,
+    pub sub_type: Option<TornItemWeaponTypeEnum>,
     #[serde(rename = "type")]
     pub type_: TornItemTypeEnum,
 }
@@ -275,32 +275,32 @@ pub enum MissionStatusEnum {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsAttackingExtended {
-    pub attacking: PersonalStatsAttackingExtended_attacking,
+    pub attacking: PersonalStatsAttackingExtended_Attacking,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsAttackingPopular {
-    pub attacking: PersonalStatsAttackingPopular_attacking,
+    pub attacking: PersonalStatsAttackingPopular_Attacking,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsAttackingPublic {
-    pub attacking: PersonalStatsAttackingPublic_attacking,
+    pub attacking: PersonalStatsAttackingPublic_Attacking,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsBattleStats {
-    pub battle_stats: PersonalStatsBattleStats_battle_stats,
+    pub battle_stats: PersonalStatsBattleStats_BattleStats,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsBounties {
-    pub bounties: PersonalStatsBounties_bounties,
+    pub bounties: PersonalStatsBounties_Bounties,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsCommunication {
-    pub communication: PersonalStatsCommunication_communication,
+    pub communication: PersonalStatsCommunication_Communication,
 }
 
 /// Response for PersonalStatsCrimes depends on which crime version user is currently.
@@ -311,7 +311,7 @@ pub struct PersonalStatsCrimes {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsCrimesPopular {
-    pub crimes: PersonalStatsCrimesPopular_crimes,
+    pub crimes: PersonalStatsCrimesPopular_Crimes,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -331,19 +331,19 @@ pub struct PersonalStatsCrimesV1 {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsCrimesV2 {
-    pub offenses: PersonalStatsCrimesV2_offenses,
-    pub skills: PersonalStatsCrimesV2_skills,
+    pub offenses: PersonalStatsCrimesV2_Offenses,
+    pub skills: PersonalStatsCrimesV2_Skills,
     pub version: String,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsDrugs {
-    pub drugs: PersonalStatsDrugs_drugs,
+    pub drugs: PersonalStatsDrugs_Drugs,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsFinishingHits {
-    pub finishing_hits: PersonalStatsFinishingHits_finishing_hits,
+    pub finishing_hits: PersonalStatsFinishingHits_FinishingHits,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -357,87 +357,87 @@ pub struct PersonalStatsHistoricStat {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsHospital {
-    pub hospital: PersonalStatsHospital_hospital,
+    pub hospital: PersonalStatsHospital_Hospital,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsHospitalPopular {
-    pub hospital: PersonalStatsHospitalPopular_hospital,
+    pub hospital: PersonalStatsHospitalPopular_Hospital,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsInvestments {
-    pub investments: PersonalStatsInvestments_investments,
+    pub investments: PersonalStatsInvestments_Investments,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsItems {
-    pub items: PersonalStatsItems_items,
+    pub items: PersonalStatsItems_Items,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsItemsPopular {
-    pub items: PersonalStatsItemsPopular_items,
+    pub items: PersonalStatsItemsPopular_Items,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsJail {
-    pub jail: PersonalStatsJail_jail,
+    pub jail: PersonalStatsJail_Jail,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsJobsExtended {
-    pub jobs: PersonalStatsJobsExtended_jobs,
+    pub jobs: PersonalStatsJobsExtended_Jobs,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsJobsPublic {
-    pub jobs: PersonalStatsJobsPublic_jobs,
+    pub jobs: PersonalStatsJobsPublic_Jobs,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsMissions {
-    pub missions: PersonalStatsMissions_missions,
+    pub missions: PersonalStatsMissions_Missions,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsNetworthExtended {
-    pub networth: PersonalStatsNetworthExtended_networth,
+    pub networth: PersonalStatsNetworthExtended_Networth,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsNetworthPublic {
-    pub networth: PersonalStatsNetworthPublic_networth,
+    pub networth: PersonalStatsNetworthPublic_Networth,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsOther {
-    pub other: PersonalStatsOther_other,
+    pub other: PersonalStatsOther_Other,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsOtherPopular {
-    pub other: PersonalStatsOtherPopular_other,
+    pub other: PersonalStatsOtherPopular_Other,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsRacing {
-    pub racing: PersonalStatsRacing_racing,
+    pub racing: PersonalStatsRacing_Racing,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsTrading {
-    pub trading: PersonalStatsTrading_trading,
+    pub trading: PersonalStatsTrading_Trading,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsTravel {
-    pub travel: PersonalStatsTravel_travel,
+    pub travel: PersonalStatsTravel_Travel,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct PersonalStatsTravelPopular {
-    pub travel: PersonalStatsTravelPopular_travel,
+    pub travel: PersonalStatsTravelPopular_Travel,
 }
 
 /// The property 'days_married' is not present if the status is 'Engaged'
@@ -478,7 +478,7 @@ pub struct UserBar {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserBars {
-    pub chain: Chain,
+    pub chain: Option<FactionOngoingChain>,
     pub energy: UserBar,
     pub happy: UserBar,
     pub life: UserBar,
@@ -521,7 +521,7 @@ pub struct UserBattleStatModifierDetail {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserBattleStatsResponse {
-    pub battlestats: UserBattleStatsResponse_battlestats,
+    pub battlestats: UserBattleStatsResponse_Battlestats,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -563,7 +563,7 @@ pub struct UserCompany {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserCompanyPoints {
-    pub company: UserCompanyPoints_company,
+    pub company: UserCompanyPoints_Company,
     pub points: i32,
 }
 
@@ -584,7 +584,7 @@ pub struct UserCompetitionElimination {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserCompetitionHalloween {
-    pub basket: UserCompetitionHalloween_basket,
+    pub basket: UserCompetitionHalloween_Basket,
     pub name: Name,
     pub treats_collected: i32,
 }
@@ -596,14 +596,14 @@ pub struct UserCompetitionResponse {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserCompetitionRps {
-    pub hp: UserCompetitionRps_hp,
+    pub hp: UserCompetitionRps_Hp,
     pub name: Name,
     pub status: UserRpsStatus,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserCooldownsResponse {
-    pub cooldowns: UserCooldownsResponse_cooldowns,
+    pub cooldowns: UserCooldownsResponse_Cooldowns,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -630,17 +630,17 @@ pub struct UserCrimeAttempts {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserCrimeDetailsBootlegging {
         /// DVD sales statistics.
-    pub dvd_sales: UserCrimeDetailsBootlegging_dvd_sales,
+    pub dvd_sales: UserCrimeDetailsBootlegging_DvdSales,
     #[serde(skip_serializing_if = "Option::is_none")]
     pub dvds_copied: Option<i32>,
         /// Online store statistics.
-    pub online_store: UserCrimeDetailsBootlegging_online_store,
+    pub online_store: UserCrimeDetailsBootlegging_OnlineStore,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserCrimeDetailsCardSkimming {
-    pub card_details: UserCrimeDetailsCardSkimming_card_details,
-    pub skimmers: UserCrimeDetailsCardSkimming_skimmers,
+    pub card_details: UserCrimeDetailsCardSkimming_CardDetails,
+    pub skimmers: UserCrimeDetailsCardSkimming_Skimmers,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -671,11 +671,11 @@ pub struct UserCrimeDetailsHustling {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserCrimeDetailsScamming {
-    pub concerns: UserCrimeDetailsScamming_concerns,
-    pub emails: UserCrimeDetailsScamming_emails,
+    pub concerns: UserCrimeDetailsScamming_Concerns,
+    pub emails: UserCrimeDetailsScamming_Emails,
     pub most_responses: i32,
-    pub payouts: UserCrimeDetailsScamming_payouts,
-    pub zones: UserCrimeDetailsScamming_zones,
+    pub payouts: UserCrimeDetailsScamming_Payouts,
+    pub zones: UserCrimeDetailsScamming_Zones,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -711,9 +711,9 @@ pub struct UserCrimeUniques {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserCrimeUniquesReward {
-    pub ammo: Ammo,
+    pub ammo: Option<UserCrimeUniquesRewardAmmo>,
     pub items: Vec<UserCrimeRewardItem>,
-    pub money: Money,
+    pub money: Option<UserCrimeUniquesRewardMoney>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -750,7 +750,7 @@ pub struct UserCurrentEducation {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserDiscordResponse {
-    pub discord: UserDiscordResponse_discord,
+    pub discord: UserDiscordResponse_Discord,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
@@ -764,7 +764,7 @@ pub enum UserDonatorStatusEnum {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserEducation {
     pub complete: Vec<EducationId>,
-    pub current: Current,
+    pub current: Option<UserCurrentEducation>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -816,7 +816,7 @@ pub struct UserFaction {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserFactionResponse {
-    pub faction: Faction,
+    pub faction: Option<UserFaction>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
@@ -885,7 +885,7 @@ pub struct UserHofResponse {
 pub struct UserHofStats {
     pub attacks: HofValue,
     pub awards: HofValue,
-    pub battle_stats: BattleStats,
+    pub battle_stats: Option<HofValue>,
     pub busts: HofValue,
     pub defends: HofValue,
     pub level: HofValue,
@@ -918,7 +918,7 @@ pub struct UserIconPrivate {
     pub description: String,
     pub id: UserIconId,
     pub title: String,
-    pub until: Until,
+    pub until: Option<i32>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -938,11 +938,11 @@ pub struct UserItemMarkeListingItemDetails {
     pub bonuses: Vec<ItemMarketListingItemBonus>,
     pub id: i64,
     pub name: String,
-    pub rarity: Rarity,
-    pub stats: Stats,
+    pub rarity: Option<Rarity>,
+    pub stats: Option<ItemMarketListingItemStats>,
     #[serde(rename = "type")]
     pub type_: String,
-    pub uid: Uid,
+    pub uid: Option<ItemUid>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -975,7 +975,7 @@ pub struct UserJob {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserJobPointsResponse {
-    pub jobpoints: UserJobPointsResponse_jobpoints,
+    pub jobpoints: UserJobPointsResponse_Jobpoints,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -1000,7 +1000,7 @@ pub struct UserJobResponse {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserList {
-    pub faction_id: FactionId,
+    pub faction_id: Option<FactionId>,
     pub id: UserId,
     pub last_action: UserLastAction,
     pub level: i32,
@@ -1019,7 +1019,7 @@ pub struct UserListResponse {
 pub struct UserLog {
         /// Dynamic key-value pairs related to the log.
     pub data: UserLog_data,
-    pub details: UserLog_details,
+    pub details: UserLog_Details,
     pub id: UserLogId,
         /// Dynamic key-value pairs related to the log.
     pub params: UserLog_params,
@@ -1116,12 +1116,12 @@ pub struct UserMessagesResponse {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserMissionsResponse {
-    pub missions: UserMissionsResponse_missions,
+    pub missions: UserMissionsResponse_Missions,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserMoneyResponse {
-    pub money: UserMoneyResponse_money,
+    pub money: UserMoneyResponse_Money,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -1136,7 +1136,7 @@ pub struct UserNewMessagesResponse {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserNotificationsResponse {
-    pub notifications: UserNotificationsResponse_notifications,
+    pub notifications: UserNotificationsResponse_Notifications,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -1189,7 +1189,7 @@ pub enum UserPersonalStatsResponse {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserProfileResponse {
-    pub profile: UserProfileResponse_profile,
+    pub profile: UserProfileResponse_Profile,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -1209,7 +1209,7 @@ pub struct UserPropertyDetailsExtended {
     pub property: BasicProperty,
     pub staff: Vec<serde_json::Value>,
     pub status: Status,
-    pub upkeep: UserPropertyDetailsExtended_upkeep,
+    pub upkeep: UserPropertyDetailsExtended_Upkeep,
     pub used_by: Vec<BasicUser>,
 }
 
@@ -1228,7 +1228,7 @@ pub struct UserPropertyDetailsExtendedForRent {
     pub renter_asked: Option<BasicUser>,
     pub staff: Vec<serde_json::Value>,
     pub status: Status,
-    pub upkeep: UserPropertyDetailsExtendedForRent_upkeep,
+    pub upkeep: UserPropertyDetailsExtendedForRent_Upkeep,
     pub used_by: Vec<BasicUser>,
 }
 
@@ -1243,7 +1243,7 @@ pub struct UserPropertyDetailsExtendedForSale {
     pub property: BasicProperty,
     pub staff: Vec<serde_json::Value>,
     pub status: Status,
-    pub upkeep: UserPropertyDetailsExtendedForSale_upkeep,
+    pub upkeep: UserPropertyDetailsExtendedForSale_Upkeep,
     pub used_by: Vec<BasicUser>,
 }
 
@@ -1253,7 +1253,7 @@ pub struct UserPropertyDetailsExtendedRented {
     pub cost_per_day: i64,
     pub happy: i32,
     pub id: PropertyId,
-    pub lease_extension: LeaseExtension,
+    pub lease_extension: Option<UserPropertyDetailsExtendedRented_lease_extension>,
     pub market_price: i64,
     pub modifications: Vec<PropertyModificationEnum>,
     pub owner: BasicUser,
@@ -1263,7 +1263,7 @@ pub struct UserPropertyDetailsExtendedRented {
     pub rented_by: BasicUser,
     pub staff: Vec<serde_json::Value>,
     pub status: Status,
-    pub upkeep: UserPropertyDetailsExtendedRented_upkeep,
+    pub upkeep: UserPropertyDetailsExtendedRented_Upkeep,
     pub used_by: Vec<BasicUser>,
 }
 
@@ -1278,7 +1278,7 @@ pub struct UserRaceCarDetails {
     pub handling: i32,
     pub id: RaceCarId,
     pub is_removed: bool,
-    pub name: Name,
+    pub name: Option<String>,
     pub parts: Vec<RaceCarUpgradeId>,
     pub points_spent: i32,
     pub races_entered: i32,
@@ -1308,7 +1308,7 @@ pub struct UserRacingRecordsResponse {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserRefillsResponse {
-    pub refills: UserRefillsResponse_refills,
+    pub refills: UserRefillsResponse_Refills,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
@@ -1507,19 +1507,19 @@ pub enum UserTitleEnum {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserTravelResponse {
-    pub travel: UserTravelResponse_travel,
+    pub travel: UserTravelResponse_Travel,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserVirus {
-    pub item: UserVirus_item,
+    pub item: UserVirus_Item,
     pub until: i32,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserVirusResponse {
         /// Null if the player is currently not programming a virus.
-    pub virus: Virus,
+    pub virus: Option<UserVirus>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -1536,5 +1536,991 @@ pub struct UserWeaponExpResponse {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserWorkStatsResponse {
-    pub workstats: UserWorkStatsResponse_workstats,
+    pub workstats: UserWorkStatsResponse_Workstats,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking_Ammunition {
+    pub hollow_point: i32,
+    pub incendiary: i32,
+    pub piercing: i32,
+    pub special: i32,
+    pub total: i32,
+    pub tracer: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking_Attacks {
+    pub assist: i32,
+    pub lost: i32,
+    pub stalemate: i32,
+    pub stealth: i32,
+    pub won: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking_Damage {
+    pub best: i32,
+    pub total: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking_Defends {
+    pub lost: i32,
+    pub stalemate: i32,
+    pub total: i32,
+    pub won: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking_Escapes {
+    pub foes: i32,
+    pub player: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking_Faction_Territory {
+    pub wall_clears: i32,
+    pub wall_joins: i32,
+    pub wall_time: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking_Faction {
+    pub raid_hits: i32,
+    pub ranked_war_hits: i32,
+    pub respect: i32,
+    pub retaliations: i32,
+    pub territory: PersonalStatsAttackingExtended_Attacking_Faction_Territory,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking_Hits {
+    pub critical: i32,
+    pub miss: i32,
+    pub one_hit_kills: i32,
+    pub success: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking_Killstreak {
+    pub best: i32,
+    pub current: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking_Networth {
+    pub items_looted: i32,
+    pub largest_mug: i64,
+    pub money_mugged: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingExtended_Attacking {
+    pub ammunition: PersonalStatsAttackingExtended_Attacking_Ammunition,
+    pub attacks: PersonalStatsAttackingExtended_Attacking_Attacks,
+    pub damage: PersonalStatsAttackingExtended_Attacking_Damage,
+    pub defends: PersonalStatsAttackingExtended_Attacking_Defends,
+    pub elo: i32,
+    pub escapes: PersonalStatsAttackingExtended_Attacking_Escapes,
+    pub faction: PersonalStatsAttackingExtended_Attacking_Faction,
+    pub highest_level_beaten: i32,
+    pub hits: PersonalStatsAttackingExtended_Attacking_Hits,
+    pub killstreak: PersonalStatsAttackingExtended_Attacking_Killstreak,
+    pub networth: PersonalStatsAttackingExtended_Attacking_Networth,
+    pub unarmored_wins: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPopular_Attacking_Ammunition {
+    pub hollow_point: i32,
+    pub incendiary: i32,
+    pub piercing: i32,
+    pub special: i32,
+    pub total: i32,
+    pub tracer: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPopular_Attacking_Attacks {
+    pub assist: i32,
+    pub lost: i32,
+    pub stalemate: i32,
+    pub won: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPopular_Attacking_Damage {
+    pub best: i32,
+    pub total: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPopular_Attacking_Defends {
+    pub lost: i32,
+    pub stalemate: i32,
+    pub won: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPopular_Attacking_Escapes {
+    pub foes: i32,
+    pub player: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPopular_Attacking_Faction {
+    pub ranked_war_hits: i32,
+    pub respect: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPopular_Attacking_Hits {
+    pub critical: i32,
+    pub miss: i32,
+    pub one_hit_kills: i32,
+    pub success: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPopular_Attacking_Killstreak {
+    pub best: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPopular_Attacking_Networth {
+    pub items_looted: i32,
+    pub largest_mug: i64,
+    pub money_mugged: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPopular_Attacking {
+    pub ammunition: PersonalStatsAttackingPopular_Attacking_Ammunition,
+    pub attacks: PersonalStatsAttackingPopular_Attacking_Attacks,
+    pub damage: PersonalStatsAttackingPopular_Attacking_Damage,
+    pub defends: PersonalStatsAttackingPopular_Attacking_Defends,
+    pub elo: i32,
+    pub escapes: PersonalStatsAttackingPopular_Attacking_Escapes,
+    pub faction: PersonalStatsAttackingPopular_Attacking_Faction,
+    pub hits: PersonalStatsAttackingPopular_Attacking_Hits,
+    pub killstreak: PersonalStatsAttackingPopular_Attacking_Killstreak,
+    pub networth: PersonalStatsAttackingPopular_Attacking_Networth,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking_Ammunition {
+    pub hollow_point: i32,
+    pub incendiary: i32,
+    pub piercing: i32,
+    pub special: i32,
+    pub total: i32,
+    pub tracer: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking_Attacks {
+    pub assist: i32,
+    pub lost: i32,
+    pub stalemate: i32,
+    pub stealth: i32,
+    pub won: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking_Damage {
+    pub best: i32,
+    pub total: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking_Defends {
+    pub lost: i32,
+    pub stalemate: i32,
+    pub total: i32,
+    pub won: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking_Escapes {
+    pub foes: i32,
+    pub player: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking_Faction_Territory {
+    pub wall_clears: i32,
+    pub wall_joins: i32,
+    pub wall_time: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking_Faction {
+    pub raid_hits: i32,
+    pub ranked_war_hits: i32,
+    pub respect: i32,
+    pub retaliations: i32,
+    pub territory: PersonalStatsAttackingPublic_Attacking_Faction_Territory,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking_Hits {
+    pub critical: i32,
+    pub miss: i32,
+    pub one_hit_kills: i32,
+    pub success: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking_Killstreak {
+    pub best: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking_Networth {
+    pub items_looted: i32,
+    pub largest_mug: i64,
+    pub money_mugged: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsAttackingPublic_Attacking {
+    pub ammunition: PersonalStatsAttackingPublic_Attacking_Ammunition,
+    pub attacks: PersonalStatsAttackingPublic_Attacking_Attacks,
+    pub damage: PersonalStatsAttackingPublic_Attacking_Damage,
+    pub defends: PersonalStatsAttackingPublic_Attacking_Defends,
+    pub elo: i32,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub escapes: Option<PersonalStatsAttackingPublic_Attacking_Escapes>,
+    pub faction: PersonalStatsAttackingPublic_Attacking_Faction,
+    pub highest_level_beaten: i32,
+    pub hits: PersonalStatsAttackingPublic_Attacking_Hits,
+    pub killstreak: PersonalStatsAttackingPublic_Attacking_Killstreak,
+    pub networth: PersonalStatsAttackingPublic_Attacking_Networth,
+    pub unarmored_wins: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsBattleStats_BattleStats {
+    pub defense: i64,
+    pub dexterity: i64,
+    pub speed: i64,
+    pub strength: i64,
+    pub total: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsBounties_Bounties_Collected {
+    pub amount: i32,
+    pub value: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsBounties_Bounties_Placed {
+    pub amount: i32,
+    pub value: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsBounties_Bounties_Received {
+    pub amount: i32,
+    pub value: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsBounties_Bounties {
+    pub collected: PersonalStatsBounties_Bounties_Collected,
+    pub placed: PersonalStatsBounties_Bounties_Placed,
+    pub received: PersonalStatsBounties_Bounties_Received,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsCommunication_Communication_MailsSent {
+    pub colleagues: i32,
+    pub faction: i32,
+    pub friends: i32,
+    pub spouse: i32,
+    pub total: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsCommunication_Communication {
+    pub classified_ads: i32,
+    pub mails_sent: PersonalStatsCommunication_Communication_MailsSent,
+    pub personals: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsCrimesPopular_Crimes {
+    pub total: i32,
+    pub version: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsCrimesV2_Offenses {
+    pub counterfeiting: i32,
+    pub cybercrime: i32,
+    pub extortion: i32,
+    pub fraud: i32,
+    pub illegal_production: i32,
+    pub illicit_services: i32,
+    pub organized_crimes: i32,
+    pub theft: i32,
+    pub total: i32,
+    pub vandalism: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsCrimesV2_Skills {
+    pub arson: i32,
+    pub bootlegging: i32,
+    pub burglary: i32,
+    pub card_skimming: i32,
+    pub cracking: i32,
+    pub disposal: i32,
+    pub forgery: i32,
+    pub graffiti: i32,
+    pub hustling: i32,
+    pub pickpocketing: i32,
+    pub scamming: i32,
+    pub search_for_cash: i32,
+    pub shoplifting: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsDrugs_Drugs_Rehabilitations {
+    pub amount: i32,
+    pub fees: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsDrugs_Drugs {
+    pub cannabis: i32,
+    pub ecstasy: i32,
+    pub ketamine: i32,
+    pub lsd: i32,
+    pub opium: i32,
+    pub overdoses: i32,
+    pub pcp: i32,
+    pub rehabilitations: PersonalStatsDrugs_Drugs_Rehabilitations,
+    pub shrooms: i32,
+    pub speed: i32,
+    pub total: i32,
+    pub vicodin: i32,
+    pub xanax: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsFinishingHits_FinishingHits {
+    pub clubbing: i32,
+    pub hand_to_hand: i32,
+    pub heavy_artillery: i32,
+    pub machine_guns: i32,
+    pub mechanical: i32,
+    pub piercing: i32,
+    pub pistols: i32,
+    pub rifles: i32,
+    pub shotguns: i32,
+    pub slashing: i32,
+    pub sub_machine_guns: i32,
+    pub temporary: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsHospital_Hospital_Reviving {
+    pub revives: i32,
+    pub revives_received: i32,
+    pub skill: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsHospital_Hospital {
+    pub blood_withdrawn: i32,
+    pub medical_items_used: i32,
+    pub reviving: PersonalStatsHospital_Hospital_Reviving,
+    pub times_hospitalized: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsHospitalPopular_Hospital_Reviving {
+    pub revives: i32,
+    pub skill: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsHospitalPopular_Hospital {
+    pub medical_items_used: i32,
+    pub reviving: PersonalStatsHospitalPopular_Hospital_Reviving,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsInvestments_Investments_Bank {
+    pub current: i64,
+    pub profit: i64,
+    pub time_remaining: i32,
+    pub total: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsInvestments_Investments_Stocks {
+    pub fees: i64,
+    pub losses: i64,
+    pub net_profits: i64,
+    pub payouts: i64,
+    pub profits: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsInvestments_Investments {
+    pub bank: PersonalStatsInvestments_Investments_Bank,
+    pub stocks: PersonalStatsInvestments_Investments_Stocks,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsItems_Items_Found {
+    pub city: i32,
+    pub dump: i32,
+    pub easter_eggs: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsItems_Items_Used {
+    pub alcohol: i32,
+    pub books: i32,
+    pub boosters: i32,
+    pub candy: i32,
+    pub consumables: i32,
+    pub easter_eggs: i32,
+    pub energy_drinks: i32,
+    pub stat_enhancers: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsItems_Items {
+    pub found: PersonalStatsItems_Items_Found,
+    pub trashed: i32,
+    pub used: PersonalStatsItems_Items_Used,
+    pub viruses_coded: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsItemsPopular_Items_Found {
+    pub dump: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsItemsPopular_Items_Used {
+    pub alcohol: i32,
+    pub books: i32,
+    pub boosters: i32,
+    pub candy: i32,
+    pub consumables: i32,
+    pub easter_eggs: i32,
+    pub energy_drinks: i32,
+    pub stat_enhancers: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsItemsPopular_Items {
+    pub found: PersonalStatsItemsPopular_Items_Found,
+    pub used: PersonalStatsItemsPopular_Items_Used,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsJail_Jail_Bails {
+    pub amount: i32,
+    pub fees: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsJail_Jail_Busts {
+    pub fails: i32,
+    pub success: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsJail_Jail {
+    pub bails: PersonalStatsJail_Jail_Bails,
+    pub busts: PersonalStatsJail_Jail_Busts,
+    pub times_jailed: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsJobsExtended_Jobs_Stats {
+    pub endurance: i32,
+    pub intelligence: i32,
+    pub manual: i32,
+    pub total: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsJobsExtended_Jobs {
+    pub job_points_used: i32,
+    pub stats: PersonalStatsJobsExtended_Jobs_Stats,
+    pub trains_received: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsJobsPublic_Jobs {
+    pub job_points_used: i32,
+    pub trains_received: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsMissions_Missions_Contracts {
+    pub duke: i32,
+    pub total: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsMissions_Missions {
+    pub contracts: PersonalStatsMissions_Missions_Contracts,
+    pub credits: i32,
+    pub missions: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsNetworthExtended_Networth {
+    pub auction_house: i64,
+    pub bank: i64,
+    pub bazaar: i64,
+    pub bookie: i64,
+    pub company: i64,
+    pub display_case: i64,
+    pub enlisted_cars: i64,
+    pub inventory: i64,
+    pub item_market: i64,
+    pub loans: i64,
+    pub overseas_bank: i64,
+    pub pending: i64,
+    pub piggy_bank: i64,
+    pub points: i64,
+    pub property: i64,
+    pub stock_market: i64,
+    pub total: i64,
+    pub unpaid_fees: i64,
+    pub vaults: i64,
+    pub wallet: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsNetworthPublic_Networth {
+    pub total: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsOther_Other_Activity_Streak {
+    pub best: i32,
+    pub current: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsOther_Other_Activity {
+    pub streak: PersonalStatsOther_Other_Activity_Streak,
+        /// Time played in seconds
+    pub time: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsOther_Other_Refills {
+    pub energy: i32,
+    pub nerve: i32,
+    pub token: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsOther_Other {
+    pub activity: PersonalStatsOther_Other_Activity,
+    pub awards: i32,
+    pub donator_days: i32,
+    pub merits_bought: i32,
+    pub ranked_war_wins: i32,
+    pub refills: PersonalStatsOther_Other_Refills,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsOtherPopular_Other_Activity_Streak {
+    pub best: i32,
+    pub current: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsOtherPopular_Other_Activity {
+    pub streak: PersonalStatsOtherPopular_Other_Activity_Streak,
+        /// Time played in seconds
+    pub time: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsOtherPopular_Other_Refills {
+    pub energy: i32,
+    pub nerve: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsOtherPopular_Other {
+    pub activity: PersonalStatsOtherPopular_Other_Activity,
+    pub awards: i32,
+    pub donator_days: i32,
+    pub merits_bought: i32,
+    pub ranked_war_wins: i32,
+    pub refills: PersonalStatsOtherPopular_Other_Refills,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsRacing_Racing_Races {
+    pub entered: i32,
+    pub won: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsRacing_Racing {
+    pub points: i32,
+    pub races: PersonalStatsRacing_Racing_Races,
+    pub skill: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsTrading_Trading_Bazaar {
+    pub customers: i32,
+    pub profit: i64,
+    pub sales: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsTrading_Trading_ItemMarket {
+    pub customers: i32,
+    pub fees: i64,
+    pub revenue: i64,
+    pub sales: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsTrading_Trading_Items_Auctions {
+    pub sold: i32,
+    pub won: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsTrading_Trading_Items_Bought {
+    pub market: i32,
+    pub shops: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsTrading_Trading_Items {
+    pub auctions: PersonalStatsTrading_Trading_Items_Auctions,
+    pub bought: PersonalStatsTrading_Trading_Items_Bought,
+    pub sent: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsTrading_Trading_Points {
+    pub bought: i32,
+    pub sold: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsTrading_Trading {
+    pub bazaar: PersonalStatsTrading_Trading_Bazaar,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub item_market: Option<PersonalStatsTrading_Trading_ItemMarket>,
+    pub items: PersonalStatsTrading_Trading_Items,
+    pub points: PersonalStatsTrading_Trading_Points,
+    pub trades: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsTravel_Travel_Hunting {
+    pub skill: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsTravel_Travel {
+    pub argentina: i32,
+    pub attacks_won: i32,
+    pub canada: i32,
+    pub cayman_islands: i32,
+    pub china: i32,
+    pub defends_lost: i32,
+    pub hawaii: i32,
+    pub hunting: PersonalStatsTravel_Travel_Hunting,
+    pub items_bought: i32,
+    pub japan: i32,
+    pub mexico: i32,
+    pub south_africa: i32,
+    pub switzerland: i32,
+    pub time_spent: i32,
+    pub total: i32,
+    pub united_arab_emirates: i32,
+    pub united_kingdom: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct PersonalStatsTravelPopular_Travel {
+    pub time_spent: i32,
+    pub total: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserBattleStatsResponse_Battlestats {
+    pub defense: UserBattleStatDetail,
+    pub dexterity: UserBattleStatDetail,
+    pub speed: UserBattleStatDetail,
+    pub strength: UserBattleStatDetail,
+    pub total: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCompanyPoints_Company {
+    pub id: CompanyTypeId,
+    pub name: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCompetitionHalloween_Basket {
+    pub id: ItemId,
+    pub name: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCompetitionRps_Hp {
+    pub current: i32,
+    pub maximum: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCooldownsResponse_Cooldowns {
+    pub booster: i32,
+    pub drug: i32,
+    pub medical: i32,
+}
+
+/// DVD sales statistics.
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCrimeDetailsBootlegging_DvdSales {
+    pub action: i32,
+    pub comedy: i32,
+    pub drama: i32,
+    pub earnings: i32,
+    pub fantasy: i32,
+    pub horror: i32,
+    pub romance: i32,
+    pub sci_fi: i32,
+    pub thriller: i32,
+    pub total: i32,
+}
+
+/// Online store statistics.
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCrimeDetailsBootlegging_OnlineStore {
+    pub customers: i32,
+    pub earnings: i32,
+    pub sales: i32,
+    pub visits: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCrimeDetailsCardSkimming_CardDetails {
+    pub areas: Vec<serde_json::Value>,
+    pub lost: i32,
+    pub recoverable: i32,
+    pub recovered: i32,
+    pub sold: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCrimeDetailsCardSkimming_Skimmers {
+    pub active: i32,
+    pub lost: i32,
+    pub most_lucrative: i32,
+    pub oldest_recovered: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCrimeDetailsScamming_Concerns {
+    pub attempts: i32,
+    pub resolved: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCrimeDetailsScamming_Emails {
+    pub phisher: i32,
+    pub scraper: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCrimeDetailsScamming_Payouts {
+    pub high: i32,
+    pub low: i32,
+    pub medium: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserCrimeDetailsScamming_Zones {
+    pub concern: i32,
+    pub hesitation: i32,
+    pub high_reward: i32,
+    pub low_reward: i32,
+    pub medium_reward: i32,
+    pub neutral: i32,
+    pub red: i32,
+    pub sensitivity: i32,
+    pub temptation: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserDiscordResponse_Discord {
+    pub discord_id: DiscordId,
+    pub user_id: UserId,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserJobPointsResponse_Jobpoints_Jobs {
+    pub army: i32,
+    pub casino: i32,
+    pub education: i32,
+    pub grocer: i32,
+    pub law: i32,
+    pub medical: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserJobPointsResponse_Jobpoints {
+    pub companies: Vec<UserCompanyPoints>,
+    pub jobs: UserJobPointsResponse_Jobpoints_Jobs,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserLog_Details {
+    pub category: String,
+    pub id: LogId,
+    pub title: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserMissionsResponse_Missions {
+    pub credits: i32,
+    pub givers: Vec<serde_json::Value>,
+    pub rewards: Vec<serde_json::Value>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserMoneyResponse_Money {
+    pub cayman_bank: i64,
+    pub city_bank: Option<UserMoneyResponse_Money_city_bank>,
+    pub company: i64,
+    pub daily_networth: i64,
+    pub faction: Option<UserMoneyResponse_Money_faction>,
+    pub points: i64,
+    pub vault: i64,
+    pub wallet: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserNotificationsResponse_Notifications {
+    pub awards: i32,
+    pub competition: i32,
+    pub events: i32,
+    pub messages: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserProfileResponse_Profile_Life {
+    pub current: i32,
+    pub maximum: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserProfileResponse_Profile_Property {
+    pub id: PropertyId,
+    pub name: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserProfileResponse_Profile {
+        /// Age in days.
+    pub age: i32,
+    pub awards: i32,
+    pub donator_status: Option<UserDonatorStatusEnum>,
+    pub enemies: i32,
+    pub faction_id: Option<FactionId>,
+    pub forum_posts: i32,
+    pub friends: i32,
+    pub gender: UserGenderEnum,
+    pub honor_id: HonorId,
+    pub id: UserId,
+    pub image: Option<String>,
+    pub karma: i32,
+    pub last_action: UserLastAction,
+    pub level: i32,
+    pub life: UserProfileResponse_Profile_Life,
+    pub name: String,
+    pub property: UserProfileResponse_Profile_Property,
+    pub rank: Rank,
+    pub revivable: bool,
+    pub role: UserRoleEnum,
+    pub signed_up: i32,
+    pub spouse: Option<ProfileSpouse>,
+    pub status: UserStatus,
+    pub title: Title,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserPropertyDetailsExtended_Upkeep {
+    pub property: i32,
+    pub staff: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserPropertyDetailsExtendedForRent_Upkeep {
+    pub property: i32,
+    pub staff: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserPropertyDetailsExtendedForSale_Upkeep {
+    pub property: i32,
+    pub staff: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserPropertyDetailsExtendedRented_Upkeep {
+    pub property: i32,
+    pub staff: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserRefillsResponse_Refills {
+    pub energy: bool,
+    pub nerve: bool,
+    pub special_count: i32,
+    pub token: bool,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserTravelResponse_Travel {
+        /// Null if the player has never flown before.
+    pub arrival_at: Option<i32>,
+        /// Null if the player has never flown before.
+    pub departed_at: Option<i32>,
+    pub destination: CountryEnum,
+        /// Null if the player has never flown before.
+    pub method: Option<UserFlyMethodEnum>,
+        /// Time left in seconds.
+    pub time_left: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserVirus_Item {
+    pub id: ItemId,
+    pub name: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserWorkStatsResponse_Workstats {
+    pub endurance: i32,
+    pub intelligence: i32,
+    pub manual_labor: i32,
+    pub total: i32,
 }

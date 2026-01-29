@@ -73,11 +73,11 @@ pub enum AttackActionEnum {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct AttackLog {
     pub action: AttackActionEnum,
-    pub attacker: Attacker,
+    pub attacker: Option<AttackLog_attacker>,
         /// This field only exists if the attacker is stealthed and they used a temporary item.
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub attacker_item: Option<AttackLog_attacker_item>,
-    pub defender: Defender,
+    pub attacker_item: Option<AttackLog_AttackerItem>,
+    pub defender: Option<AttackLog_defender>,
     pub icon: String,
     pub text: String,
     pub timestamp: i32,
@@ -87,16 +87,16 @@ pub struct AttackLog {
 pub struct AttackLogResponse {
     #[serde(rename = "_metadata")]
     pub metadata: RequestMetadataWithLinks,
-    pub attacklog: AttackLogResponse_attacklog,
+    pub attacklog: AttackLogResponse_Attacklog,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct AttackLogSummary {
     pub damage: i32,
     pub hits: i32,
-    pub id: Id,
+    pub id: Option<UserId>,
     pub misses: i32,
-    pub name: Name,
+    pub name: Option<String>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
@@ -110,11 +110,11 @@ pub enum AwardCrimesVersionEnum {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Bounty {
     pub is_anonymous: bool,
-    pub lister_id: ListerId,
+    pub lister_id: Option<UserId>,
         /// If the bounty is anonymous this field is null.
-    pub lister_name: ListerName,
+    pub lister_name: Option<String>,
     pub quantity: i32,
-    pub reason: Reason,
+    pub reason: Option<String>,
     pub reward: i64,
     pub target_id: UserId,
     pub target_level: i32,
@@ -129,11 +129,11 @@ pub type EliminationTeamId = i32;
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionHofValues {
         /// Maximum chain achieved by the faction. Null if chosen category is 'rank' or 'respect'.
-    pub chain: Chain,
+    pub chain: Option<i32>,
         /// The duration of the chain. Null if chosen category is 'rank' or 'respect'.
-    pub chain_duration: ChainDuration,
+    pub chain_duration: Option<i32>,
         /// Null if chosen category is 'chain'.
-    pub respect: Respect,
+    pub respect: Option<i32>,
 }
 
 pub type HonorId = i32;
@@ -231,9 +231,9 @@ pub type MeritId = i32;
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct RequestLinks {
         /// Auto-generated link to get the next set of records.
-    pub next: Next,
+    pub next: Option<String>,
         /// Auto-generated link to get the prev set of records.
-    pub prev: Prev,
+    pub prev: Option<String>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -261,7 +261,7 @@ pub struct TornCalendarActivity {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct TornCalendarResponse {
-    pub calendar: TornCalendarResponse_calendar,
+    pub calendar: TornCalendarResponse_Calendar,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -316,15 +316,15 @@ pub struct TornEducationResponse {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct TornEducationRewards {
-    pub effect: Effect,
-    pub honor: Honor,
-    pub working_stats: TornEducationRewards_working_stats,
+    pub effect: Option<String>,
+    pub honor: Option<String>,
+    pub working_stats: TornEducationRewards_WorkingStats,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct TornEliminationTeam {
     pub eliminated: bool,
-    pub eliminated_timestamp: EliminatedTimestamp,
+    pub eliminated_timestamp: Option<i32>,
     pub id: EliminationTeamId,
     pub leaders: Vec<TornEliminationTeamLeader>,
     pub lives: i32,
@@ -468,7 +468,7 @@ pub struct TornHonor {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rarity: Option<HonorRarityEnum>,
     #[serde(rename = "type")]
-    pub type_: TornHonor_type,
+    pub type_: TornHonor_Type,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -482,18 +482,18 @@ pub struct TornItem {
     pub description: String,
         /// If the item 'type' is 'Armor' then TornItemArmorDetails is returned.<br>If the item 'type' is 'Weapon' then TornItemWeaponDetails is returned.<br>Otherwise, null is returned.
     pub details: Details,
-    pub effect: Effect,
+    pub effect: Option<String>,
     pub id: ItemId,
     pub image: String,
     pub is_found_in_city: bool,
     pub is_masked: bool,
     pub is_tradable: bool,
     pub name: String,
-    pub requirement: Requirement,
-    pub sub_type: SubType,
+    pub requirement: Option<String>,
+    pub sub_type: Option<TornItemWeaponTypeEnum>,
     #[serde(rename = "type")]
     pub type_: TornItemTypeEnum,
-    pub value: TornItem_value,
+    pub value: TornItem_Value,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -604,7 +604,7 @@ pub enum TornItemWeaponCategoryEnum {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct TornItemWeaponDetails {
-    pub ammo: Ammo,
+    pub ammo: Option<TornItemWeaponDetails_ammo>,
     pub base_stats: TornItemBaseStats,
     pub category: TornItemWeaponCategoryEnum,
     pub mods: Vec<ItemModId>,
@@ -654,7 +654,7 @@ pub struct TornMedal {
     pub name: String,
     pub rarity: HonorRarityEnum,
     #[serde(rename = "type")]
-    pub type_: TornMedal_type,
+    pub type_: TornMedal_Type,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -679,7 +679,7 @@ pub struct TornOrganizedCrime {
     pub description: String,
     pub difficulty: i32,
     pub name: OrganizedCrimeName,
-    pub prerequisite: Prerequisite,
+    pub prerequisite: Option<OrganizedCrimeName>,
     pub scope: TornOrganizedCrimeScope,
     pub slots: Vec<TornOrganizedCrimeSlot>,
     pub spawn: TornOrganizedCrimeSpawn,
@@ -708,7 +708,7 @@ pub struct TornOrganizedCrimeScope {
 pub struct TornOrganizedCrimeSlot {
     pub id: TornOrganizedCrimePositionId,
     pub name: String,
-    pub required_item: RequiredItem,
+    pub required_item: Option<TornOrganizedCrimeRequiredItem>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -810,4 +810,50 @@ pub enum UserRankEnum {
     Elite,
     #[serde(rename = "Invincible")]
     Invincible,
+}
+
+/// This field only exists if the attacker is stealthed and they used a temporary item.
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct AttackLog_AttackerItem {
+    pub id: ItemId,
+    pub name: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct AttackLogResponse_Attacklog {
+    pub log: Vec<AttackLog>,
+    pub summary: Vec<AttackLogSummary>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct TornCalendarResponse_Calendar {
+    pub competitions: Vec<TornCalendarActivity>,
+    pub events: Vec<TornCalendarActivity>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct TornEducationRewards_WorkingStats {
+    pub endurance: Option<i32>,
+    pub intelligence: Option<i32>,
+    pub manual_labor: Option<i32>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct TornHonor_Type {
+    pub id: i32,
+    pub title: HonorTypeEnum,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct TornItem_Value {
+    pub buy_price: Option<i64>,
+    pub market_price: i64,
+    pub sell_price: Option<i64>,
+    pub vendor: Option<TornItem_Value_vendor>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct TornMedal_Type {
+    pub id: String,
+    pub title: MedalTypeEnum,
 }

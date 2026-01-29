@@ -16,9 +16,9 @@ pub type DirtyBombId = i32;
 pub struct FactionApplication {
         /// application id
     pub id: i32,
-    pub message: Message,
+    pub message: Option<String>,
     pub status: FactionApplicationStatusEnum,
-    pub user: FactionApplication_user,
+    pub user: FactionApplication_User,
     pub valid_until: i32,
 }
 
@@ -41,7 +41,7 @@ pub struct FactionApplicationsResponse {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionBalance {
-    pub faction: FactionBalance_faction,
+    pub faction: FactionBalance_Faction,
     pub members: Vec<serde_json::Value>,
 }
 
@@ -58,7 +58,7 @@ pub struct FactionBasic {
     pub days_old: i32,
     pub id: FactionId,
         /// Indicates if the faction is enlisted for ranked wars. Available only with faction AA permissions for your own faction.
-    pub is_enlisted: IsEnlisted,
+    pub is_enlisted: Option<bool>,
     pub leader_id: UserId,
     pub members: i32,
     pub name: String,
@@ -182,7 +182,7 @@ pub struct FactionChainReportResponse {
 pub struct FactionChainWarfare {
     pub chain: i32,
     pub end: i32,
-    pub faction: FactionChainWarfare_faction,
+    pub faction: FactionChainWarfare_Faction,
     pub id: ChainId,
     pub respect: f32,
     pub start: i32,
@@ -214,18 +214,18 @@ pub struct FactionCrime {
     pub created_at: i32,
     pub difficulty: i32,
         /// The timestamp at which the crime was executed. <br> Note: this value is null for all crimes executed before January 15th, 2025.
-    pub executed_at: ExecutedAt,
+    pub executed_at: Option<i32>,
         /// The timestamp at which the crime will expire.
     pub expired_at: i32,
     pub id: FactionCrimeId,
     pub name: OrganizedCrimeName,
         /// The timestamp at which the planning phase for the crime has begun.
-    pub planning_at: PlanningAt,
-    pub previous_crime_id: PreviousCrimeId,
+    pub planning_at: Option<i32>,
+    pub previous_crime_id: Option<FactionCrimeId>,
         /// The timestamp at which the crime will be ready.
-    pub ready_at: ReadyAt,
+    pub ready_at: Option<i32>,
         /// Details about the crime rewards. Available only for crimes with 'Successful' status.
-    pub rewards: Rewards,
+    pub rewards: Option<FactionCrimeReward>,
     pub slots: Vec<FactionCrimeSlot>,
     pub status: FactionCrimeStatusEnum,
 }
@@ -250,7 +250,7 @@ pub struct FactionCrimeReward {
     pub items: Vec<FactionCrimeRewardItem>,
     pub money: i32,
         /// Details about the crime payouts. This field is null if the crime has not been paid via the automatic payouts system.
-    pub payout: Payout,
+    pub payout: Option<FactionCrimeRewardPayout>,
     pub respect: i32,
     pub scope: i32,
 }
@@ -276,12 +276,12 @@ pub struct FactionCrimeSlot {
         /// Returns CPR for the player who joined the slot. If the slot is empty (availalbe), it shows your CPR for that slot. This value is 0 for expired crimes.
     pub checkpoint_pass_rate: i32,
         /// Details of item required for the slot, if applicable.
-    pub item_requirement: ItemRequirement,
+    pub item_requirement: Option<FactionCrimeSlot_item_requirement>,
     pub position: String,
     pub position_id: TornOrganizedCrimePositionId,
     pub position_number: i32,
         /// Details about the user joined the slot, if any.
-    pub user: User,
+    pub user: Option<FactionCrimeUser>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
@@ -302,14 +302,14 @@ pub enum FactionCrimeStatusEnum {
 pub struct FactionCrimeUser {
     pub id: UserId,
         /// This field is only populated for crimes completed after 25/07/2025 and only if the item was used or lost.
-    pub item_outcome: ItemOutcome,
+    pub item_outcome: Option<FactionCrimeUserItemOutcome>,
         /// The timestamp at which the user joined the slot.
     pub joined_at: i32,
         /// This field will be null for old crimes.
-    pub outcome: Outcome,
+    pub outcome: Option<FactionCrimeUserOutcome>,
         /// This field is only populated for crimes completed after 25/07/2025 and only if the outcome is 'Jailed' or 'Hospitalized'.
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub outcome_duration: Option<OutcomeDuration>,
+    pub outcome_duration: Option<i32>,
         /// Current planning progress on the slot.
     pub progress: f32,
 }
@@ -546,7 +546,7 @@ pub struct FactionRaidReportUser {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionRaidWar {
-    pub end: End,
+    pub end: Option<i32>,
         /// The factions involved in the raid war.
     pub factions: Vec<FactionRaidWarParticipant>,
     pub start: i32,
@@ -572,7 +572,7 @@ pub struct FactionRaidWarReportResponse {
 pub struct FactionRaidWarfare {
     pub aggressor: FactionRaidWarfareFaction,
     pub defender: FactionRaidWarfareFaction,
-    pub end: End,
+    pub end: Option<i32>,
     pub id: RaidWarId,
     pub start: i32,
 }
@@ -606,14 +606,14 @@ pub struct FactionRank {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionRankedWar {
-    pub end: End,
+    pub end: Option<i32>,
         /// The factions involved in the ranked war.
     pub factions: Vec<FactionRankedWarParticipant>,
     pub start: i32,
         /// The score target of the war.
     pub target: i32,
     pub war_id: i32,
-    pub winner: Winner,
+    pub winner: Option<i32>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -625,7 +625,7 @@ pub struct FactionRankedWarDetails {
         /// Timestamp the war started at.
     pub start: i32,
     pub target: i32,
-    pub winner: Winner,
+    pub winner: Option<FactionId>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -639,7 +639,7 @@ pub struct FactionRankedWarParticipant {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionRankedWarReportResponse {
-    pub rankedwarreport: FactionRankedWarReportResponse_rankedwarreport,
+    pub rankedwarreport: FactionRankedWarReportResponse_Rankedwarreport,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -651,17 +651,17 @@ pub struct FactionRankedWarResponse {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionSearch {
-    pub co_leader: CoLeader,
+    pub co_leader: Option<FactionSearchLeader>,
     pub id: FactionId,
-    pub image: Image,
+    pub image: Option<String>,
     pub is_destroyed: bool,
     pub is_recruiting: bool,
     pub leader: FactionSearchLeader,
     pub members: i32,
     pub name: String,
     pub respect: i32,
-    pub tag: Tag,
-    pub tag_image: TagImage,
+    pub tag: Option<String>,
+    pub tag_image: Option<String>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -808,7 +808,7 @@ pub struct FactionTerritory {
     pub coordinates: TornTerritoryCoordinates,
     pub density: i32,
     pub id: FactionTerritoryEnum,
-    pub racket: Racket,
+    pub racket: Option<TornRacket>,
     pub respect: i32,
     pub sector: i32,
     pub size: i32,
@@ -9035,14 +9035,14 @@ pub enum FactionTerritoryEnum {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionTerritoryOwnership {
-    pub acquired_at: AcquiredAt,
+    pub acquired_at: Option<i32>,
     pub id: String,
-    pub owned_by: OwnedBy,
+    pub owned_by: Option<FactionId>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionTerritoryWar {
-    pub end: End,
+    pub end: Option<i32>,
         /// The factions involved in the territory war.
     pub factions: Vec<FactionTerritoryWarParticipant>,
     pub start: i32,
@@ -9051,7 +9051,7 @@ pub struct FactionTerritoryWar {
     pub territory: String,
     pub war_id: i32,
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub winner: Option<Winner>,
+    pub winner: Option<FactionId>,
 }
 
 /// The fields 'chain' and 'players_on_wall' exist only for wars with the result 'in_progress'.
@@ -9187,7 +9187,7 @@ pub struct FactionUpgradeDetails {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionUpgrades {
-    pub core: FactionUpgrades_core,
+    pub core: FactionUpgrades_Core,
     pub peace: Vec<FactionBranchDetails>,
     pub war: Vec<FactionBranchDetails>,
 }
@@ -9204,7 +9204,7 @@ pub struct FactionWarfareDirtyBomb {
     pub faction: FactionWarfareDirtyBombTargetFaction,
     pub id: DirtyBombId,
     pub planted_at: i32,
-    pub user: User,
+    pub user: Option<FactionWarfareDirtyBombPlanter>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -9230,7 +9230,7 @@ pub struct FactionWarfareResponse {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionWars {
     pub raids: Vec<FactionRaidWar>,
-    pub ranked: Ranked,
+    pub ranked: Option<FactionRankedWar>,
     pub territory: Vec<FactionTerritoryWar>,
 }
 
@@ -9248,7 +9248,7 @@ pub struct HofValue {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct HofValueString {
-    pub rank: Rank,
+    pub rank: Option<i32>,
     pub value: String,
 }
 
@@ -9300,7 +9300,7 @@ pub struct TornRacket {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct TornRacketReward {
-    pub id: Id,
+    pub id: Option<ItemId>,
     pub quantity: i32,
     #[serde(rename = "type")]
     pub type_: TornRacketType,
@@ -9355,12 +9355,12 @@ pub enum UserPlaneImageTypeEnum {
 pub struct UserStatus {
     pub color: String,
     pub description: String,
-    pub details: Details,
+    pub details: Option<String>,
         /// This field is populated only if the state is 'Traveling'.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plane_image_type: Option<UserPlaneImageTypeEnum>,
     pub state: State,
-    pub until: Until,
+    pub until: Option<i32>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
@@ -9383,4 +9383,43 @@ pub enum UserStatusStateEnum {
     Okay,
     #[serde(rename = "Traveling")]
     Traveling,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct FactionApplication_User {
+    pub id: UserId,
+    pub level: i32,
+    pub name: String,
+    pub stats: Option<FactionApplication_User_stats>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct FactionBalance_Faction {
+    pub money: i64,
+    pub points: i64,
+    pub scope: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct FactionChainWarfare_Faction {
+    pub id: FactionId,
+    pub name: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct FactionRankedWarReportResponse_Rankedwarreport {
+        /// Timestamp the war ended at.
+    pub end: i32,
+    pub factions: Vec<serde_json::Value>,
+    pub forfeit: bool,
+    pub id: RankedWarId,
+        /// Timestamp the war started at.
+    pub start: i32,
+    pub winner: FactionId,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct FactionUpgrades_Core {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub upgrades: Option<Vec<FactionUpgradeDetails>>,
 }

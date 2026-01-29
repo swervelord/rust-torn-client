@@ -177,16 +177,16 @@ pub struct ItemMarketListingItemBonus {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct ItemMarketListingItemDetails {
     pub bonuses: Vec<ItemMarketListingItemBonus>,
-    pub rarity: Rarity,
+    pub rarity: Option<Rarity>,
     pub stats: ItemMarketListingItemStats,
     pub uid: ItemUid,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct ItemMarketListingItemStats {
-    pub accuracy: Accuracy,
-    pub armor: Armor,
-    pub damage: Damage,
+    pub accuracy: Option<f32>,
+    pub armor: Option<f32>,
+    pub damage: Option<f32>,
     pub quality: f32,
 }
 
@@ -286,9 +286,9 @@ pub struct TornItemDetails {
     pub bonuses: Vec<ItemMarketListingItemBonus>,
     pub id: ItemId,
     pub name: String,
-    pub rarity: Rarity,
+    pub rarity: Option<Rarity>,
     pub stats: ItemMarketListingItemStats,
-    pub sub_type: SubType,
+    pub sub_type: Option<TornItemWeaponTypeEnum>,
     #[serde(rename = "type")]
     pub type_: TornItemTypeEnum,
     pub uid: ItemUid,

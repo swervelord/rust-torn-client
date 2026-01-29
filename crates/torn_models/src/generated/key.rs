@@ -32,7 +32,7 @@ pub struct KeyInfoAvailableLog {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct KeyInfoResponse {
-    pub info: KeyInfoResponse_info,
+    pub info: KeyInfoResponse_Info,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -77,4 +77,50 @@ pub enum TornSelectionName {
 pub enum UserSelectionName {
     Variant0(String),
     Variant1(String),
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct KeyInfoResponse_Info_Access_Log {
+    pub available: Vec<KeyInfoAvailableLog>,
+        /// Shows if key has custom log permissions enabled.
+    pub custom_permissions: bool,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct KeyInfoResponse_Info_Access {
+    pub company: bool,
+    pub faction: bool,
+    pub level: i32,
+    pub log: KeyInfoResponse_Info_Access_Log,
+    #[serde(rename = "type")]
+    pub type_: ApiKeyAccessTypeEnum,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct KeyInfoResponse_Info_Selections {
+    pub company: Vec<String>,
+    pub faction: Vec<FactionSelectionName>,
+    pub forum: Vec<ForumSelectionName>,
+    pub key: Vec<KeySelectionName>,
+    pub market: Vec<MarketSelectionName>,
+    pub property: Vec<String>,
+    pub racing: Vec<RacingSelectionName>,
+    pub torn: Vec<TornSelectionName>,
+    pub user: Vec<UserSelectionName>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct KeyInfoResponse_Info_User {
+        /// Null only if the user is not in a company.
+    pub company_id: Option<CompanyId>,
+        /// Null only if the user is not in a faction.
+    pub faction_id: Option<FactionId>,
+    pub id: UserId,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct KeyInfoResponse_Info {
+    pub access: KeyInfoResponse_Info_Access,
+    pub selections: KeyInfoResponse_Info_Selections,
+    pub user: KeyInfoResponse_Info_User,
 }

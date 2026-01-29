@@ -124,6 +124,16 @@ def map_openapi_type_to_rust(
 
     # Composition types (allOf, oneOf, anyOf) - caller should handle
     if "allOf" in schema or "oneOf" in schema or "anyOf" in schema:
+        # Special case: oneOf with null is just a nullable type (Option)
+        one_of = schema.get("oneOf", schema.get("anyOf"))
+        if one_of and len(one_of) == 2:
+            # Check if one variant is null
+            non_null_schemas = [s for s in one_of if s.get("type") != "null"]
+            if len(non_null_schemas) == 1:
+                # This is a nullable type - return the inner type
+                # The caller will wrap it in Option if needed
+                return map_openapi_type_to_rust(non_null_schemas[0], type_name, parent_name)
+
         if type_name:
             return to_rust_type_name(type_name)
 
@@ -336,6 +346,9 @@ class RustCodeGenerator:
         if has_hashmap:
             lines.append("use std::collections::HashMap;\n")
 
+        # Clear nested type definitions for this module
+        self.nested_type_definitions = []
+
         # Generate each schema
         for schema_name in sorted(schemas):
             schema = self.schema_map[schema_name]
@@ -343,6 +356,11 @@ class RustCodeGenerator:
             if code:
                 lines.append(code)
                 lines.append("")  # Blank line between types
+
+        # Add any nested type definitions that were generated
+        for nested_type in self.nested_type_definitions:
+            lines.append(nested_type)
+            lines.append("")  # Blank line between types
 
         return "\n".join(lines)
 
@@ -417,13 +435,33 @@ class RustCodeGenerator:
             if field_name != prop_name:
                 lines.append(f'    #[serde(rename = "{prop_name}")]')
 
-            # Skip serializing if None
+            # Check if this is a nullable type (oneOf with null)
+            is_nullable = False
+            one_of = prop_schema.get("oneOf", prop_schema.get("anyOf"))
+            if one_of and len(one_of) == 2:
+                non_null_schemas = [s for s in one_of if s.get("type") != "null"]
+                if len(non_null_schemas) == 1:
+                    is_nullable = True
+
+            # Skip serializing if None (only for optional fields, not nullable required fields)
             if not is_required:
                 lines.append('    #[serde(skip_serializing_if = "Option::is_none")]')
 
-            # Field type
-            field_type = map_openapi_type_to_rust(prop_schema, prop_name, rust_name)
-            if not is_required:
+            # Check if this is an inline object that needs a nested struct
+            if (prop_schema.get("type") == "object" and
+                "properties" in prop_schema and
+                "$ref" not in prop_schema):
+                # Generate a nested struct
+                nested_name = f"{rust_name}_{to_rust_type_name(prop_name)}"
+                nested_struct = self._generate_struct(nested_name, prop_schema)
+                self.nested_type_definitions.append(nested_struct)
+                field_type = nested_name
+            else:
+                # Field type
+                field_type = map_openapi_type_to_rust(prop_schema, prop_name, rust_name)
+
+            # Wrap in Option if not required OR if nullable
+            if not is_required or is_nullable:
                 field_type = f"Option<{field_type}>"
 
             lines.append(f"    pub {field_name}: {field_type},")

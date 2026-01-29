@@ -41,7 +41,7 @@ pub struct ForumPost {
     pub created_time: i32,
     pub dislikes: i32,
         /// 'edited_by' is null when 'is_edited' is false.
-    pub edited_by: EditedBy,
+    pub edited_by: Option<UserId>,
     pub has_quote: bool,
     pub id: ForumPostId,
     pub is_edited: bool,
@@ -51,7 +51,7 @@ pub struct ForumPost {
     pub is_topic: bool,
     pub likes: i32,
         /// 'quoted_post_id' is null when 'has_quote' is false.
-    pub quoted_post_id: QuotedPostId,
+    pub quoted_post_id: Option<i32>,
     pub thread_id: ForumThreadId,
 }
 
@@ -87,8 +87,8 @@ pub struct ForumThreadBase {
     pub id: ForumThreadId,
     pub is_locked: bool,
     pub is_sticky: bool,
-    pub last_post_time: LastPostTime,
-    pub last_poster: LastPoster,
+    pub last_post_time: Option<i32>,
+    pub last_poster: Option<ForumThreadAuthor>,
     pub posts: i32,
     pub rating: i32,
     pub title: String,
@@ -107,10 +107,10 @@ pub struct ForumThreadExtended {
     pub id: ForumThreadId,
     pub is_locked: bool,
     pub is_sticky: bool,
-    pub last_post_time: LastPostTime,
-    pub last_poster: LastPoster,
+    pub last_post_time: Option<i32>,
+    pub last_poster: Option<ForumThreadAuthor>,
         /// 'poll' is null when 'has_poll' is false.
-    pub poll: Poll,
+    pub poll: Option<ForumPoll>,
     pub posts: i32,
     pub rating: i32,
     pub title: String,

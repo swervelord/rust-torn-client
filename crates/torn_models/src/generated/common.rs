@@ -20,7 +20,7 @@ pub enum ApiFiltersAttacksRevivesEnum {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Attack {
-    pub attacker: Attacker,
+    pub attacker: Option<AttackPlayer>,
     pub chain: i32,
     pub code: AttackCode,
     pub defender: AttackPlayer,
@@ -33,7 +33,7 @@ pub struct Attack {
     pub is_raid: bool,
     pub is_ranked_war: bool,
     pub is_stealthed: bool,
-    pub modifiers: Attack_modifiers,
+    pub modifiers: Attack_Modifiers,
     pub respect_gain: f32,
     pub respect_loss: f32,
     pub result: FactionAttackResult,
@@ -63,7 +63,7 @@ pub type AttackId = i32;
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct AttackPlayer {
-    pub faction: Faction,
+    pub faction: Option<AttackPlayerFaction>,
     pub id: UserId,
     pub level: i32,
     pub name: String,
@@ -77,13 +77,13 @@ pub struct AttackPlayerFaction {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct AttackPlayerSimplified {
-    pub faction_id: FactionId,
+    pub faction_id: Option<FactionId>,
     pub id: UserId,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct AttackSimplified {
-    pub attacker: Attacker,
+    pub attacker: Option<AttackPlayerSimplified>,
     pub code: AttackCode,
     pub defender: AttackPlayerSimplified,
         /// Attack end timestamp.
@@ -836,11 +836,11 @@ pub enum RacingRaceTypeEnum {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Report {
         /// Reporter's faction ID if applicable.
-    pub faction_id: FactionId,
+    pub faction_id: Option<FactionId>,
     pub report: Report,
     pub reporter_id: UserId,
         /// The target ID if applicable.
-    pub target_id: TargetId,
+    pub target_id: Option<UserId>,
     pub timestamp: i32,
     #[serde(rename = "type")]
     pub type_: ReportTypeEnum,
@@ -854,10 +854,10 @@ pub struct ReportAnonymousBounties {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct ReportBase {
         /// Reporter's faction ID if applicable.
-    pub faction_id: FactionId,
+    pub faction_id: Option<FactionId>,
     pub reporter_id: UserId,
         /// The target ID if applicable.
-    pub target_id: TargetId,
+    pub target_id: Option<UserId>,
     pub timestamp: i32,
     #[serde(rename = "type")]
     pub type_: ReportTypeEnum,
@@ -867,7 +867,7 @@ pub struct ReportBase {
 pub struct ReportCompanyFinancials {
     pub balance: i64,
     pub employees: i32,
-    pub wages: ReportCompanyFinancials_wages,
+    pub wages: ReportCompanyFinancials_Wages,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -892,7 +892,7 @@ pub struct ReportHistory {
 pub struct ReportHistoryCompany {
     pub id: CompanyId,
     pub joined: String,
-    pub left: Left,
+    pub left: Option<String>,
     pub name: String,
 }
 
@@ -900,7 +900,7 @@ pub struct ReportHistoryCompany {
 pub struct ReportHistoryFaction {
     pub id: FactionId,
     pub joined: String,
-    pub left: Left,
+    pub left: Option<String>,
     pub name: String,
 }
 
@@ -928,11 +928,11 @@ pub struct ReportReport {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct ReportStats {
-    pub defense: Defense,
-    pub dexterity: Dexterity,
-    pub speed: Speed,
-    pub strength: Strength,
-    pub total: Total,
+    pub defense: Option<i64>,
+    pub dexterity: Option<i64>,
+    pub speed: Option<i64>,
+    pub strength: Option<i64>,
+    pub total: Option<i64>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -999,9 +999,9 @@ pub struct RequestMetadataWithLinksAndTotal {
 pub struct Revive {
     pub id: ReviveId,
     pub result: String,
-    pub reviver: Revive_reviver,
+    pub reviver: Revive_Reviver,
     pub success_chance: f32,
-    pub target: Revive_target,
+    pub target: Revive_Target,
     pub timestamp: i32,
 }
 
@@ -1011,9 +1011,9 @@ pub type ReviveId = i32;
 pub struct ReviveSimplified {
     pub id: ReviveId,
     pub result: String,
-    pub reviver: ReviveSimplified_reviver,
+    pub reviver: ReviveSimplified_Reviver,
     pub success_chance: f32,
-    pub target: ReviveSimplified_target,
+    pub target: ReviveSimplified_Target,
     pub timestamp: i32,
 }
 
@@ -1170,7 +1170,7 @@ pub struct UserFactionBalance {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct UserFactionBalanceResponse {
     #[serde(rename = "factionBalance")]
-    pub faction_balance: Factionbalance,
+    pub faction_balance: Option<UserFactionBalance>,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
@@ -1192,7 +1192,7 @@ pub struct UserPropertyDetails {
     pub owner: BasicUser,
     pub property: BasicProperty,
     pub staff: Vec<serde_json::Value>,
-    pub upkeep: UserPropertyDetails_upkeep,
+    pub upkeep: UserPropertyDetails_Upkeep,
     pub used_by: Vec<BasicUser>,
 }
 
@@ -1345,4 +1345,64 @@ pub enum WeaponBonusEnum {
     Windup,
     #[serde(rename = "Wither")]
     Wither,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Attack_Modifiers {
+    pub chain: f32,
+    pub fair_fight: f32,
+    pub group: f32,
+    pub overseas: f32,
+    pub retaliation: f32,
+    pub war: f32,
+    pub warlord: f32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ReportCompanyFinancials_Wages {
+    pub average: i32,
+    pub highest: i32,
+    pub lowest: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Revive_Reviver {
+    pub faction: Option<Revive_Reviver_faction>,
+    pub id: UserId,
+    pub name: String,
+        /// Entries before 16/06/2025 will have this field set as null.
+    pub skill: Option<f32>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Revive_Target {
+    pub early_discharge: bool,
+    pub faction: Option<Revive_Target_faction>,
+    pub hospital_reason: String,
+    pub id: UserId,
+    pub last_action: i32,
+    pub name: String,
+    pub online_status: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ReviveSimplified_Reviver {
+    pub faction_id: Option<FactionId>,
+    pub id: UserId,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ReviveSimplified_Target {
+    pub early_discharge: bool,
+    pub faction_id: Option<FactionId>,
+    pub hospital_reason: String,
+    pub id: UserId,
+    pub last_action: i32,
+    pub online_status: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserPropertyDetails_Upkeep {
+    pub property: i32,
+    pub staff: i32,
 }

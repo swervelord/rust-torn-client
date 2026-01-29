@@ -50,7 +50,7 @@ pub struct UserPropertyBasicDetails {
     pub owner: BasicUser,
     pub property: BasicProperty,
     pub staff: Vec<serde_json::Value>,
-    pub upkeep: UserPropertyBasicDetails_upkeep,
+    pub upkeep: UserPropertyBasicDetails_Upkeep,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -65,6 +65,18 @@ pub struct UserPropertyDetailsExtendedWithRent {
     pub rented_by: Option<BasicUser>,
     pub staff: Vec<serde_json::Value>,
     pub status: Status,
-    pub upkeep: UserPropertyDetailsExtendedWithRent_upkeep,
+    pub upkeep: UserPropertyDetailsExtendedWithRent_Upkeep,
     pub used_by: Vec<BasicUser>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserPropertyBasicDetails_Upkeep {
+    pub property: i32,
+    pub staff: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct UserPropertyDetailsExtendedWithRent_Upkeep {
+    pub property: i32,
+    pub staff: i32,
 }

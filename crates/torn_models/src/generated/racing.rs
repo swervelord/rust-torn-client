@@ -14,9 +14,9 @@ pub struct Race {
     pub id: RaceId,
     pub is_official: bool,
     pub laps: i32,
-    pub participants: Race_participants,
-    pub requirements: Race_requirements,
-    pub schedule: Race_schedule,
+    pub participants: Race_Participants,
+    pub requirements: Race_Requirements,
+    pub schedule: Race_Schedule,
     pub status: RaceStatusEnum,
     pub title: String,
     pub track_id: RaceTrackId,
@@ -42,9 +42,9 @@ pub type RaceCarId = i32;
 pub struct RaceCarUpgrade {
     pub category: RaceCarUpgradeCategory,
     pub class_required: RaceClassEnum,
-    pub cost: RaceCarUpgrade_cost,
+    pub cost: RaceCarUpgrade_Cost,
     pub description: String,
-    pub effects: RaceCarUpgrade_effects,
+    pub effects: RaceCarUpgrade_Effects,
     pub id: RaceCarUpgradeId,
     pub name: String,
     pub subcategory: RaceCarUpgradeSubCategory,
@@ -232,16 +232,16 @@ pub type RaceTrackId = i32;
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct RacerDetails {
-    pub best_lap_time: BestLapTime,
+    pub best_lap_time: Option<f32>,
     pub car_class: RaceClassEnum,
     pub car_id: RaceCarId,
     pub car_item_id: ItemId,
     pub car_item_name: String,
     pub driver_id: UserId,
-    pub has_crashed: HasCrashed,
-    pub position: Position,
-    pub race_time: RaceTime,
-    pub time_ended: TimeEnded,
+    pub has_crashed: Option<bool>,
+    pub position: Option<i32>,
+    pub race_time: Option<f32>,
+    pub time_ended: Option<i32>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -265,10 +265,10 @@ pub struct RacingRaceDetails {
     pub id: RaceId,
     pub is_official: bool,
     pub laps: i32,
-    pub participants: RacingRaceDetails_participants,
-    pub requirements: RacingRaceDetails_requirements,
+    pub participants: RacingRaceDetails_Participants,
+    pub requirements: RacingRaceDetails_Requirements,
     pub results: Vec<RacerDetails>,
-    pub schedule: RacingRaceDetails_schedule,
+    pub schedule: RacingRaceDetails_Schedule,
     pub status: RaceStatusEnum,
     pub title: String,
     pub track_id: RaceTrackId,
@@ -294,4 +294,71 @@ pub struct RacingTrackRecordsResponse {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct RacingTracksResponse {
     pub tracks: Vec<RaceTrack>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Race_Participants {
+    pub current: i32,
+    pub maximum: i32,
+    pub minimum: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Race_Requirements {
+    pub car_class: Option<RaceClassEnum>,
+    pub car_item_id: Option<ItemId>,
+    pub driver_class: Option<RaceClassEnum>,
+    pub join_fee: i32,
+    pub requires_password: bool,
+    pub requires_stock_car: bool,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Race_Schedule {
+    pub end: Option<i32>,
+    pub join_from: i32,
+    pub join_until: i32,
+    pub start: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct RaceCarUpgrade_Cost {
+    pub cash: i32,
+    pub points: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct RaceCarUpgrade_Effects {
+    pub acceleration: i32,
+    pub braking: i32,
+    pub dirt: i32,
+    pub handling: i32,
+    pub safety: i32,
+    pub tarmac: i32,
+    pub top_speed: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct RacingRaceDetails_Participants {
+    pub current: i32,
+    pub maximum: i32,
+    pub minimum: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct RacingRaceDetails_Requirements {
+    pub car_class: Option<RaceClassEnum>,
+    pub car_item_id: Option<ItemId>,
+    pub driver_class: Option<RaceClassEnum>,
+    pub join_fee: i32,
+    pub requires_password: bool,
+    pub requires_stock_car: bool,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct RacingRaceDetails_Schedule {
+    pub end: Option<i32>,
+    pub join_from: i32,
+    pub join_until: i32,
+    pub start: i32,
 }
