@@ -473,7 +473,7 @@ mod tests {
         // Spawn multiple threads that record requests concurrently
         for i in 0..10 {
             let limiter_clone = Arc::clone(&limiter);
-            let handle = thread::spawn(move {
+            let handle = thread::spawn(move || {
                 let key = format!("key{}", i % 3);
                 for _ in 0..10 {
                     limiter_clone.record_request(&key);

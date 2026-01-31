@@ -8,6 +8,11 @@
 // a deterministic patch step. See GENERATED_POLICY.md.
 // =============================================================================
 
+#![allow(non_camel_case_types)]
+
+// Cross-module type imports
+use crate::generated::torn::{RequestMetadataWithLinks, UserId};
+
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct ForumCategoriesResponse {
     pub categories: Vec<serde_json::Value>,

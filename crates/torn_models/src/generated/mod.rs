@@ -8,6 +8,8 @@
 // a deterministic patch step. See GENERATED_POLICY.md.
 // =============================================================================
 
+#![allow(non_camel_case_types)]
+
 pub mod common;
 pub mod faction;
 pub mod forum;

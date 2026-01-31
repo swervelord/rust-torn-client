@@ -8,6 +8,14 @@
 // a deterministic patch step. See GENERATED_POLICY.md.
 // =============================================================================
 
+#![allow(non_camel_case_types)]
+
+// Cross-module type imports
+use crate::generated::common::{FactionId};
+use crate::generated::faction::{FactionBranchId, FactionTerritoryEnum, OrganizedCrimeName, TornOrganizedCrimePositionId, TornTerritoryCoordinates, UserLastAction, UserStatus};
+use crate::generated::key::{LogCategoryId, LogId, TornSelectionName};
+use crate::generated::market::{TornItemDetails, TornItemTypeEnum, TornItemWeaponTypeEnum};
+
 pub type AmmoId = i32;
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
@@ -73,11 +81,11 @@ pub enum AttackActionEnum {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct AttackLog {
     pub action: AttackActionEnum,
-    pub attacker: Option<AttackLog_attacker>,
+    pub attacker: Option<AttackLog_Attacker>,
         /// This field only exists if the attacker is stealthed and they used a temporary item.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub attacker_item: Option<AttackLog_AttackerItem>,
-    pub defender: Option<AttackLog_defender>,
+    pub defender: Option<AttackLog_Defender>,
     pub icon: String,
     pub text: String,
     pub timestamp: i32,
@@ -424,7 +432,7 @@ pub struct TornHofBasic {
     pub signed_up: i32,
     pub username: String,
         /// Value representing the chosen category. Traveltime is shown in seconds. If the chosen category is 'rank', the value is of type string. If the chosen category is 'racingskill', the value is of type float. Otherwise it is an integer.
-    pub value: Value,
+    pub value: TornHofBasic_Value,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -449,7 +457,7 @@ pub struct TornHofWithOffenses {
     pub signed_up: i32,
     pub username: String,
         /// Value representing the chosen category. Traveltime is shown in seconds. If the chosen category is 'rank', the value is of type string. If the chosen category is 'racingskill', the value is of type float. Otherwise it is an integer.
-    pub value: Value,
+    pub value: TornHofWithOffenses_Value,
 }
 
 /// Properties 'circulation', 'equipped' & 'rarity' are only populated for honors which do not have type.id value 1.
@@ -481,7 +489,7 @@ pub struct TornItem {
     pub circulation: i64,
     pub description: String,
         /// If the item 'type' is 'Armor' then TornItemArmorDetails is returned.<br>If the item 'type' is 'Weapon' then TornItemWeaponDetails is returned.<br>Otherwise, null is returned.
-    pub details: Details,
+    pub details: TornItem_Details,
     pub effect: Option<String>,
     pub id: ItemId,
     pub image: String,
@@ -604,7 +612,7 @@ pub enum TornItemWeaponCategoryEnum {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct TornItemWeaponDetails {
-    pub ammo: Option<TornItemWeaponDetails_ammo>,
+    pub ammo: Option<TornItemWeaponDetails_Ammo>,
     pub base_stats: TornItemBaseStats,
     pub category: TornItemWeaponCategoryEnum,
     pub mods: Vec<ItemModId>,
@@ -812,10 +820,34 @@ pub enum UserRankEnum {
     Invincible,
 }
 
+/// This object could be null if there was no item being used in this turn or during this effect.
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct AttackLog_Attacker_Item {
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub id: Option<ItemId>,
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub name: Option<String>,
+}
+
+/// This value could be null in stealthed attacks.
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct AttackLog_Attacker {
+    pub id: UserId,
+    pub item: Option<AttackLog_Attacker_Item>,
+    pub name: String,
+}
+
 /// This field only exists if the attacker is stealthed and they used a temporary item.
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct AttackLog_AttackerItem {
     pub id: ItemId,
+    pub name: String,
+}
+
+/// This value could be null in stealthed attacks.
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct AttackLog_Defender {
+    pub id: UserId,
     pub name: String,
 }
 
@@ -838,10 +870,43 @@ pub struct TornEducationRewards_WorkingStats {
     pub manual_labor: Option<i32>,
 }
 
+/// Value representing the chosen category. Traveltime is shown in seconds. If the chosen category is 'rank', the value is of type string. If the chosen category is 'racingskill', the value is of type float. Otherwise it is an integer.
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+pub enum TornHofBasic_Value {
+    Variant0(i32),
+    Variant1(String),
+    Variant2(f32),
+}
+
+/// Value representing the chosen category. Traveltime is shown in seconds. If the chosen category is 'rank', the value is of type string. If the chosen category is 'racingskill', the value is of type float. Otherwise it is an integer.
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+pub enum TornHofWithOffenses_Value {
+    Variant0(i32),
+    Variant1(String),
+    Variant2(f32),
+}
+
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct TornHonor_Type {
     pub id: i32,
     pub title: HonorTypeEnum,
+}
+
+/// If the item 'type' is 'Armor' then TornItemArmorDetails is returned.<br>If the item 'type' is 'Weapon' then TornItemWeaponDetails is returned.<br>Otherwise, null is returned.
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+pub enum TornItem_Details {
+    TornItemWeaponDetails(TornItemWeaponDetails),
+    TornItemArmorDetails(TornItemArmorDetails),
+    Variant2(serde_json::Value),
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct TornItem_Value_Vendor {
+    pub country: String,
+    pub name: String,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -849,7 +914,21 @@ pub struct TornItem_Value {
     pub buy_price: Option<i64>,
     pub market_price: i64,
     pub sell_price: Option<i64>,
-    pub vendor: Option<TornItem_Value_vendor>,
+    pub vendor: Option<TornItem_Value_Vendor>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct TornItemWeaponDetails_Ammo_RateOfFire {
+    pub maximum: i32,
+    pub minimum: i32,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct TornItemWeaponDetails_Ammo {
+    pub id: AmmoId,
+    pub magazine_rounds: i32,
+    pub name: String,
+    pub rate_of_fire: TornItemWeaponDetails_Ammo_RateOfFire,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]

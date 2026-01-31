@@ -7,7 +7,7 @@ use crate::pagination::PaginatedResponse;
 use crate::{Error, TornClient};
 use torn_models::generated::common::{MarketSpecializedBazaarCategoryEnum, WeaponBonusEnum};
 use torn_models::generated::market::*;
-use torn_models::generated::torn::{ItemId, RequestMetadataWithLinks, UserId};
+use torn_models::generated::torn::ItemId;
 
 /// Market API endpoints (self-scoped).
 pub struct MarketEndpoint<'a> {

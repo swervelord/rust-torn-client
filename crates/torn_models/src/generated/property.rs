@@ -8,6 +8,11 @@
 // a deterministic patch step. See GENERATED_POLICY.md.
 // =============================================================================
 
+#![allow(non_camel_case_types)]
+
+// Cross-module type imports
+use crate::generated::market::{BasicProperty, BasicUser, PropertyModificationEnum};
+
 pub type PropertyId = i64;
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -64,7 +69,7 @@ pub struct UserPropertyDetailsExtendedWithRent {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub rented_by: Option<BasicUser>,
     pub staff: Vec<serde_json::Value>,
-    pub status: Status,
+    pub status: UserPropertyDetailsExtendedWithRent_Status,
     pub upkeep: UserPropertyDetailsExtendedWithRent_Upkeep,
     pub used_by: Vec<BasicUser>,
 }
@@ -73,6 +78,14 @@ pub struct UserPropertyDetailsExtendedWithRent {
 pub struct UserPropertyBasicDetails_Upkeep {
     pub property: i32,
     pub staff: i32,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum UserPropertyDetailsExtendedWithRent_Status {
+    #[serde(rename = "none")]
+    None,
+    #[serde(rename = "in_use")]
+    InUse,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]

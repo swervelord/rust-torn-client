@@ -35,6 +35,8 @@ GENERATED_HEADER = """\
 // To fix issues in generated code, modify the generator configuration or add
 // a deterministic patch step. See GENERATED_POLICY.md.
 // =============================================================================
+
+#![allow(non_camel_case_types)]
 """
 
 
@@ -111,13 +113,20 @@ def map_openapi_type_to_rust(
     # Object with additionalProperties (map/dict)
     if schema_type == "object":
         additional_props = schema.get("additionalProperties")
-        if additional_props and not schema.get("properties"):
-            # It's a HashMap
+        has_properties = bool(schema.get("properties"))
+
+        # Object with additionalProperties but no properties - it's a HashMap
+        if additional_props and not has_properties:
             if isinstance(additional_props, dict):
                 value_type = map_openapi_type_to_rust(additional_props, parent_name=parent_name)
             else:
                 value_type = "serde_json::Value"
             return f"std::collections::HashMap<String, {value_type}>"
+
+        # Object without properties or additionalProperties - freeform object
+        if not has_properties and not additional_props:
+            return "serde_json::Value"
+
         # Has properties - should be a named struct
         if parent_name and type_name:
             return to_rust_type_name(f"{parent_name}_{type_name}")
@@ -222,6 +231,7 @@ class RustCodeGenerator:
         self.spec_map = spec_map
         self.generated_types: Set[str] = set()
         self.nested_type_definitions: List[str] = []
+        self.type_to_module: Dict[str, str] = {}  # Maps type name to module name
 
     def generate_all(self) -> Dict[str, str]:
         """
@@ -232,6 +242,12 @@ class RustCodeGenerator:
         """
         # Organize schemas by tag
         tag_schemas = self._organize_schemas_by_tag()
+
+        # Build type-to-module mapping
+        for tag, schemas in tag_schemas.items():
+            for schema_name in schemas:
+                rust_name = to_rust_type_name(schema_name)
+                self.type_to_module[rust_name] = tag
 
         # Generate module files
         modules = {}
@@ -350,12 +366,28 @@ class RustCodeGenerator:
         self.nested_type_definitions = []
 
         # Generate each schema
+        generated_code = []
         for schema_name in sorted(schemas):
             schema = self.schema_map[schema_name]
             code = self._generate_type(schema_name, schema)
             if code:
-                lines.append(code)
-                lines.append("")  # Blank line between types
+                generated_code.append(code)
+
+        # Collect all cross-module imports needed
+        all_code = "\n".join(generated_code + self.nested_type_definitions)
+        imports = self._collect_cross_module_imports(tag, all_code)
+
+        # Add cross-module imports
+        if imports:
+            lines.append("// Cross-module type imports")
+            for import_line in sorted(imports):
+                lines.append(import_line)
+            lines.append("")
+
+        # Add generated code
+        for code in generated_code:
+            lines.append(code)
+            lines.append("")  # Blank line between types
 
         # Add any nested type definitions that were generated
         for nested_type in self.nested_type_definitions:
@@ -377,6 +409,38 @@ class RustCodeGenerator:
                     return True
 
         return False
+
+    def _collect_cross_module_imports(self, current_tag: str, code: str) -> List[str]:
+        """Collect all cross-module imports needed for the generated code."""
+        imports_by_module: Dict[str, Set[str]] = {}
+
+        # Find all type references in the code
+        # Match patterns like "pub field: TypeName" or "Vec<TypeName>" or "Option<TypeName>"
+        import re
+        type_pattern = r'\b([A-Z][a-zA-Z0-9_]*)\b'
+
+        for match in re.finditer(type_pattern, code):
+            type_name = match.group(1)
+
+            # Skip built-in Rust types
+            if type_name in {'String', 'Vec', 'Option', 'Box', 'HashMap', 'Result'}:
+                continue
+
+            # Check if this type is from another module
+            if type_name in self.type_to_module:
+                type_module = self.type_to_module[type_name]
+                # Only import if it's from a different module
+                if type_module != current_tag:
+                    imports_by_module.setdefault(type_module, set()).add(type_name)
+
+        # Generate import lines
+        import_lines = []
+        for module in sorted(imports_by_module.keys()):
+            types = sorted(imports_by_module[module])
+            types_str = ", ".join(types)
+            import_lines.append(f"use crate::generated::{module}::{{{types_str}}};")
+
+        return import_lines
 
     def _generate_type(self, name: str, schema: dict) -> Optional[str]:
         """Generate Rust code for a schema."""
@@ -437,31 +501,66 @@ class RustCodeGenerator:
 
             # Check if this is a nullable type (oneOf with null)
             is_nullable = False
+            nullable_inner_schema = None
             one_of = prop_schema.get("oneOf", prop_schema.get("anyOf"))
             if one_of and len(one_of) == 2:
                 non_null_schemas = [s for s in one_of if s.get("type") != "null"]
                 if len(non_null_schemas) == 1:
                     is_nullable = True
+                    nullable_inner_schema = non_null_schemas[0]
 
             # Skip serializing if None (only for optional fields, not nullable required fields)
             if not is_required:
                 lines.append('    #[serde(skip_serializing_if = "Option::is_none")]')
 
+            # Determine the schema to use for type generation
+            type_schema = nullable_inner_schema if is_nullable else prop_schema
+
             # Check if this is an inline object that needs a nested struct
-            if (prop_schema.get("type") == "object" and
-                "properties" in prop_schema and
-                "$ref" not in prop_schema):
+            if (type_schema.get("type") == "object" and
+                "properties" in type_schema and
+                "$ref" not in type_schema):
                 # Generate a nested struct
                 nested_name = f"{rust_name}_{to_rust_type_name(prop_name)}"
-                nested_struct = self._generate_struct(nested_name, prop_schema)
+                nested_struct = self._generate_struct(nested_name, type_schema)
                 self.nested_type_definitions.append(nested_struct)
+                field_type = nested_name
+            # Check if this is an inline allOf composition
+            elif "allOf" in type_schema and "$ref" not in type_schema:
+                # Generate a nested struct from allOf
+                nested_name = f"{rust_name}_{to_rust_type_name(prop_name)}"
+                nested_struct = self._generate_allof_struct(nested_name, type_schema)
+                self.nested_type_definitions.append(nested_struct)
+                field_type = nested_name
+            # Check if this is an inline enum
+            elif "enum" in type_schema and "$ref" not in type_schema:
+                # Generate a nested enum for inline enum
+                nested_name = f"{rust_name}_{to_rust_type_name(prop_name)}"
+                nested_enum = self._generate_enum(nested_name, type_schema)
+                self.nested_type_definitions.append(nested_enum)
+                field_type = nested_name
+            # Check if this is an inline oneOf that needs a nested enum
+            elif ("oneOf" in type_schema or "anyOf" in type_schema):
+                # Generate a nested enum for oneOf/anyOf
+                nested_name = f"{rust_name}_{to_rust_type_name(prop_name)}"
+                nested_enum = self._generate_oneof_enum(nested_name, type_schema)
+                self.nested_type_definitions.append(nested_enum)
                 field_type = nested_name
             else:
                 # Field type
-                field_type = map_openapi_type_to_rust(prop_schema, prop_name, rust_name)
+                field_type = map_openapi_type_to_rust(type_schema, prop_name, rust_name)
 
-            # Wrap in Option if not required OR if nullable
-            if not is_required or is_nullable:
+            # Check for recursive type - wrap in Box to avoid infinite size
+            is_recursive = False
+            if field_type == rust_name:
+                is_recursive = True
+                field_type = f"Box<{field_type}>"
+
+            # Wrap in Option if not required OR if nullable (but not if already boxed for recursion)
+            if (not is_required or is_nullable) and not is_recursive:
+                field_type = f"Option<{field_type}>"
+            elif (not is_required or is_nullable) and is_recursive:
+                # Recursive and optional - use Option<Box<T>>
                 field_type = f"Option<{field_type}>"
 
             lines.append(f"    pub {field_name}: {field_type},")

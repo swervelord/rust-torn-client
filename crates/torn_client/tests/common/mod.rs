@@ -3,6 +3,8 @@
 //! This module provides utilities for creating test clients and managing
 //! API keys from environment variables.
 
+#![allow(dead_code)]
+
 use torn_client::TornClient;
 
 /// Get a single API key from the environment, or return None.
@@ -16,7 +18,7 @@ use torn_client::TornClient;
 pub fn test_client() -> Option<TornClient> {
     std::env::var("TORN_API_KEY")
         .ok()
-        .map(|key| TornClient::new(key))
+        .map(TornClient::new)
 }
 
 /// Get a client with multiple API keys from the environment, or fallback to single key.

@@ -6,4 +6,6 @@
 //! Do NOT hand-edit anything in `src/generated/`. See `GENERATED_POLICY.md` at the
 //! workspace root for the patching and regeneration policy.
 
+#![allow(clippy::large_enum_variant)]
+
 pub mod generated;

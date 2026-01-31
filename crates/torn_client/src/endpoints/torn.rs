@@ -5,6 +5,7 @@
 
 use crate::pagination::PaginatedResponse;
 use crate::{Error, TornClient};
+use torn_models::generated::common::TimestampResponse;
 use torn_models::generated::torn::*;
 
 /// Torn API endpoints (no ID required).

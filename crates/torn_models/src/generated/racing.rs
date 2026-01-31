@@ -8,6 +8,12 @@
 // a deterministic patch step. See GENERATED_POLICY.md.
 // =============================================================================
 
+#![allow(non_camel_case_types)]
+
+// Cross-module type imports
+use crate::generated::key::{RacingSelectionName};
+use crate::generated::torn::{ItemId, RequestMetadataWithLinks, UserId};
+
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Race {
     pub creator_id: UserId,

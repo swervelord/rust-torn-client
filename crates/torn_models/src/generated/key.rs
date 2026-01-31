@@ -8,6 +8,14 @@
 // a deterministic patch step. See GENERATED_POLICY.md.
 // =============================================================================
 
+#![allow(non_camel_case_types)]
+
+// Cross-module type imports
+use crate::generated::common::{FactionId};
+use crate::generated::faction::{FactionSelectionName};
+use crate::generated::forum::{ForumSelectionName};
+use crate::generated::torn::{UserId};
+
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub enum ApiKeyAccessTypeEnum {
     #[serde(rename = "Custom")]

@@ -8,6 +8,51 @@
 // a deterministic patch step. See GENERATED_POLICY.md.
 // =============================================================================
 
+#![allow(non_camel_case_types)]
+
+// Cross-module type imports
+use crate::generated::faction::{FactionTerritoryEnum, TerritoryWarId};
+use crate::generated::key::{CompanyId};
+use crate::generated::market::{BasicProperty, BasicUser, PropertyModificationEnum};
+use crate::generated::property::{PropertyId};
+use crate::generated::torn::{RequestLinks, RequestMetadataWithLinks, TornTerritory, UserId};
+use crate::generated::user::{DiscordId};
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+pub enum ApiError {
+    ErrorUnknown(ErrorUnknown),
+    ErrorKeyEmpty(ErrorKeyEmpty),
+    ErrorIncorrectKey(ErrorIncorrectKey),
+    ErrorWrongType(ErrorWrongType),
+    ErrorWrongFields(ErrorWrongFields),
+    ErrorTooManyRequests(ErrorTooManyRequests),
+    ErrorIncorrectId(ErrorIncorrectId),
+    ErrorIncorrectIdEntityRelation(ErrorIncorrectIdEntityRelation),
+    ErrorIpBlocked(ErrorIpBlocked),
+    ErrorApiDisabled(ErrorApiDisabled),
+    ErrorKeyOwnerInFederalJail(ErrorKeyOwnerInFederalJail),
+    ErrorKeyChangeCooldown(ErrorKeyChangeCooldown),
+    ErrorKeyReadError(ErrorKeyReadError),
+    ErrorKeyTemporaryDisabled(ErrorKeyTemporaryDisabled),
+    ErrorDailyReadLimitReached(ErrorDailyReadLimitReached),
+    ErrorLogUnavailable(ErrorLogUnavailable),
+    ErrorAccessLevelTooLow(ErrorAccessLevelTooLow),
+    ErrorBackendError(ErrorBackendError),
+    ErrorApiKeyPaused(ErrorApiKeyPaused),
+    ErrorMustMigrateToCrimesV2(ErrorMustMigrateToCrimesV2),
+    ErrorRaceNotFinished(ErrorRaceNotFinished),
+    ErrorIncorrectCategory(ErrorIncorrectCategory),
+    ErrorOnlyAvailableInApiV1(ErrorOnlyAvailableInApiV1),
+    ErrorOnlyAvailableInApiV2(ErrorOnlyAvailableInApiV2),
+    ErrorClosedTemporarily(ErrorClosedTemporarily),
+    ErrorInvalidStatRequested(ErrorInvalidStatRequested),
+    ErrorOnlyCategoryOrStatsAllowed(ErrorOnlyCategoryOrStatsAllowed),
+    ErrorMustMigrateToOrganizedCrimesV2(ErrorMustMigrateToOrganizedCrimesV2),
+    ErrorIncorrectLogId(ErrorIncorrectLogId),
+    ErrorCategorySelectionUnavailableForInteractionLogs(ErrorCategorySelectionUnavailableForInteractionLogs),
+}
+
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
 pub enum ApiFiltersAttacksRevivesEnum {
     #[serde(rename = "incoming")]
@@ -143,6 +188,186 @@ pub enum CountryEnum {
     CaymanIslands,
     #[serde(rename = "Torn")]
     Torn,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorAccessLevelTooLow {
+    pub code: ErrorAccessLevelTooLow_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorApiDisabled {
+    pub code: ErrorApiDisabled_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorApiKeyPaused {
+    pub code: ErrorApiKeyPaused_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorBackendError {
+    pub code: ErrorBackendError_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorCategorySelectionUnavailableForInteractionLogs {
+    pub code: ErrorCategorySelectionUnavailableForInteractionLogs_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorClosedTemporarily {
+    pub code: ErrorClosedTemporarily_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorDailyReadLimitReached {
+    pub code: ErrorDailyReadLimitReached_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorIncorrectCategory {
+    pub code: ErrorIncorrectCategory_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorIncorrectId {
+    pub code: ErrorIncorrectId_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorIncorrectIdEntityRelation {
+    pub code: ErrorIncorrectIdEntityRelation_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorIncorrectKey {
+    pub code: ErrorIncorrectKey_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorIncorrectLogId {
+    pub code: ErrorIncorrectLogId_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorInvalidStatRequested {
+    pub code: ErrorInvalidStatRequested_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorIpBlocked {
+    pub code: ErrorIpBlocked_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorKeyChangeCooldown {
+    pub code: ErrorKeyChangeCooldown_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorKeyEmpty {
+    pub code: ErrorKeyEmpty_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorKeyOwnerInFederalJail {
+    pub code: ErrorKeyOwnerInFederalJail_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorKeyReadError {
+    pub code: ErrorKeyReadError_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorKeyTemporaryDisabled {
+    pub code: ErrorKeyTemporaryDisabled_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorLogUnavailable {
+    pub code: ErrorLogUnavailable_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorMustMigrateToCrimesV2 {
+    pub code: ErrorMustMigrateToCrimesV2_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorMustMigrateToOrganizedCrimesV2 {
+    pub code: ErrorMustMigrateToOrganizedCrimesV2_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorOnlyAvailableInApiV1 {
+    pub code: ErrorOnlyAvailableInApiV1_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorOnlyAvailableInApiV2 {
+    pub code: ErrorOnlyAvailableInApiV2_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorOnlyCategoryOrStatsAllowed {
+    pub code: ErrorOnlyCategoryOrStatsAllowed_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorRaceNotFinished {
+    pub code: ErrorRaceNotFinished_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorTooManyRequests {
+    pub code: ErrorTooManyRequests_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorUnknown {
+    pub code: ErrorUnknown_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorWrongFields {
+    pub code: ErrorWrongFields_Code,
+    pub error: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct ErrorWrongType {
+    pub code: ErrorWrongType_Code,
+    pub error: String,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
@@ -837,7 +1062,7 @@ pub enum RacingRaceTypeEnum {
 pub struct Report {
         /// Reporter's faction ID if applicable.
     pub faction_id: Option<FactionId>,
-    pub report: Report,
+    pub report: Report_Report,
     pub reporter_id: UserId,
         /// The target ID if applicable.
     pub target_id: Option<UserId>,
@@ -923,7 +1148,7 @@ pub struct ReportMostWanted {
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct ReportReport {
-    pub report: Report,
+    pub report: ReportReport_Report,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -1358,6 +1583,201 @@ pub struct Attack_Modifiers {
     pub warlord: f32,
 }
 
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorAccessLevelTooLow_Code {
+    #[serde(rename = "16")]
+    Value16,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorApiDisabled_Code {
+    #[serde(rename = "9")]
+    Value9,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorApiKeyPaused_Code {
+    #[serde(rename = "18")]
+    Value18,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorBackendError_Code {
+    #[serde(rename = "17")]
+    Value17,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorCategorySelectionUnavailableForInteractionLogs_Code {
+    #[serde(rename = "29")]
+    Value29,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorClosedTemporarily_Code {
+    #[serde(rename = "24")]
+    Value24,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorDailyReadLimitReached_Code {
+    #[serde(rename = "14")]
+    Value14,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorIncorrectCategory_Code {
+    #[serde(rename = "21")]
+    Value21,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorIncorrectId_Code {
+    #[serde(rename = "6")]
+    Value6,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorIncorrectIdEntityRelation_Code {
+    #[serde(rename = "7")]
+    Value7,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorIncorrectKey_Code {
+    #[serde(rename = "2")]
+    Value2,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorIncorrectLogId_Code {
+    #[serde(rename = "28")]
+    Value28,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorInvalidStatRequested_Code {
+    #[serde(rename = "25")]
+    Value25,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorIpBlocked_Code {
+    #[serde(rename = "8")]
+    Value8,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorKeyChangeCooldown_Code {
+    #[serde(rename = "11")]
+    Value11,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorKeyEmpty_Code {
+    #[serde(rename = "1")]
+    Value1,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorKeyOwnerInFederalJail_Code {
+    #[serde(rename = "10")]
+    Value10,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorKeyReadError_Code {
+    #[serde(rename = "12")]
+    Value12,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorKeyTemporaryDisabled_Code {
+    #[serde(rename = "13")]
+    Value13,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorLogUnavailable_Code {
+    #[serde(rename = "15")]
+    Value15,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorMustMigrateToCrimesV2_Code {
+    #[serde(rename = "19")]
+    Value19,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorMustMigrateToOrganizedCrimesV2_Code {
+    #[serde(rename = "27")]
+    Value27,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorOnlyAvailableInApiV1_Code {
+    #[serde(rename = "22")]
+    Value22,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorOnlyAvailableInApiV2_Code {
+    #[serde(rename = "23")]
+    Value23,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorOnlyCategoryOrStatsAllowed_Code {
+    #[serde(rename = "26")]
+    Value26,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorRaceNotFinished_Code {
+    #[serde(rename = "20")]
+    Value20,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorTooManyRequests_Code {
+    #[serde(rename = "5")]
+    Value5,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorUnknown_Code {
+    #[serde(rename = "0")]
+    Value0,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorWrongFields_Code {
+    #[serde(rename = "4")]
+    Value4,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ErrorWrongType_Code {
+    #[serde(rename = "3")]
+    Value3,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+pub enum Report_Report {
+    ReportMoney(ReportMoney),
+    ReportStats(ReportStats),
+    ReportMostWanted(ReportMostWanted),
+    ReportHistory(ReportHistory),
+    ReportFriendOrFoe(ReportFriendOrFoe),
+    ReportCompanyFinancials(ReportCompanyFinancials),
+    ReportTrueLevel(ReportTrueLevel),
+    ReportStockAnalysis(ReportStockAnalysis),
+    ReportAnonymousBounties(ReportAnonymousBounties),
+    ReportInvestment(ReportInvestment),
+}
+
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct ReportCompanyFinancials_Wages {
     pub average: i32,
@@ -1366,8 +1786,29 @@ pub struct ReportCompanyFinancials_Wages {
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+pub enum ReportReport_Report {
+    ReportMoney(ReportMoney),
+    ReportStats(ReportStats),
+    ReportMostWanted(ReportMostWanted),
+    ReportHistory(ReportHistory),
+    ReportFriendOrFoe(ReportFriendOrFoe),
+    ReportCompanyFinancials(ReportCompanyFinancials),
+    ReportTrueLevel(ReportTrueLevel),
+    ReportStockAnalysis(ReportStockAnalysis),
+    ReportAnonymousBounties(ReportAnonymousBounties),
+    ReportInvestment(ReportInvestment),
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Revive_Reviver_Faction {
+    pub id: FactionId,
+    pub name: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Revive_Reviver {
-    pub faction: Option<Revive_Reviver_faction>,
+    pub faction: Option<Revive_Reviver_Faction>,
     pub id: UserId,
     pub name: String,
         /// Entries before 16/06/2025 will have this field set as null.
@@ -1375,9 +1816,15 @@ pub struct Revive_Reviver {
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct Revive_Target_Faction {
+    pub id: FactionId,
+    pub name: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct Revive_Target {
     pub early_discharge: bool,
-    pub faction: Option<Revive_Target_faction>,
+    pub faction: Option<Revive_Target_Faction>,
     pub hospital_reason: String,
     pub id: UserId,
     pub last_action: i32,

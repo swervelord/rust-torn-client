@@ -403,6 +403,100 @@
         "format": "int32",
         "type": "integer"
       },
+      "ApiError": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ErrorUnknown"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorKeyEmpty"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorIncorrectKey"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorWrongType"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorWrongFields"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorTooManyRequests"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorIncorrectId"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorIncorrectIdEntityRelation"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorIpBlocked"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorApiDisabled"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorKeyOwnerInFederalJail"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorKeyChangeCooldown"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorKeyReadError"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorKeyTemporaryDisabled"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorDailyReadLimitReached"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorLogUnavailable"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorAccessLevelTooLow"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorBackendError"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorApiKeyPaused"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorMustMigrateToCrimesV2"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorRaceNotFinished"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorIncorrectCategory"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorOnlyAvailableInApiV1"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorOnlyAvailableInApiV2"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorClosedTemporarily"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorInvalidStatRequested"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorOnlyCategoryOrStatsAllowed"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorMustMigrateToOrganizedCrimesV2"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorIncorrectLogId"
+          },
+          {
+            "$ref": "#/components/schemas/ErrorCategorySelectionUnavailableForInteractionLogs"
+          }
+        ]
+      },
       "ApiFiltersAttacksRevivesEnum": {
         "enum": [
           "incoming",
@@ -1487,6 +1581,576 @@
       "EliminationTeamId": {
         "format": "int32",
         "type": "integer"
+      },
+      "ErrorAccessLevelTooLow": {
+        "properties": {
+          "code": {
+            "enum": [
+              16
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorApiDisabled": {
+        "properties": {
+          "code": {
+            "enum": [
+              9
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorApiKeyPaused": {
+        "properties": {
+          "code": {
+            "enum": [
+              18
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorBackendError": {
+        "properties": {
+          "code": {
+            "enum": [
+              17
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorCategorySelectionUnavailableForInteractionLogs": {
+        "properties": {
+          "code": {
+            "enum": [
+              29
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorClosedTemporarily": {
+        "properties": {
+          "code": {
+            "enum": [
+              24
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorDailyReadLimitReached": {
+        "properties": {
+          "code": {
+            "enum": [
+              14
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorIncorrectCategory": {
+        "properties": {
+          "code": {
+            "enum": [
+              21
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorIncorrectId": {
+        "properties": {
+          "code": {
+            "enum": [
+              6
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorIncorrectIdEntityRelation": {
+        "properties": {
+          "code": {
+            "enum": [
+              7
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorIncorrectKey": {
+        "properties": {
+          "code": {
+            "enum": [
+              2
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorIncorrectLogId": {
+        "properties": {
+          "code": {
+            "enum": [
+              28
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorInvalidStatRequested": {
+        "properties": {
+          "code": {
+            "enum": [
+              25
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorIpBlocked": {
+        "properties": {
+          "code": {
+            "enum": [
+              8
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorKeyChangeCooldown": {
+        "properties": {
+          "code": {
+            "enum": [
+              11
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorKeyEmpty": {
+        "properties": {
+          "code": {
+            "enum": [
+              1
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorKeyOwnerInFederalJail": {
+        "properties": {
+          "code": {
+            "enum": [
+              10
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorKeyReadError": {
+        "properties": {
+          "code": {
+            "enum": [
+              12
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorKeyTemporaryDisabled": {
+        "properties": {
+          "code": {
+            "enum": [
+              13
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorLogUnavailable": {
+        "properties": {
+          "code": {
+            "enum": [
+              15
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorMustMigrateToCrimesV2": {
+        "properties": {
+          "code": {
+            "enum": [
+              19
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorMustMigrateToOrganizedCrimesV2": {
+        "properties": {
+          "code": {
+            "enum": [
+              27
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorOnlyAvailableInApiV1": {
+        "properties": {
+          "code": {
+            "enum": [
+              22
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorOnlyAvailableInApiV2": {
+        "properties": {
+          "code": {
+            "enum": [
+              23
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorOnlyCategoryOrStatsAllowed": {
+        "properties": {
+          "code": {
+            "enum": [
+              26
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorRaceNotFinished": {
+        "properties": {
+          "code": {
+            "enum": [
+              20
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorTooManyRequests": {
+        "properties": {
+          "code": {
+            "enum": [
+              5
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorUnknown": {
+        "properties": {
+          "code": {
+            "enum": [
+              0
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorWrongFields": {
+        "properties": {
+          "code": {
+            "enum": [
+              4
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
+      },
+      "ErrorWrongType": {
+        "properties": {
+          "code": {
+            "enum": [
+              3
+            ],
+            "format": "int32",
+            "type": "integer"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "code",
+          "error"
+        ],
+        "type": "object"
       },
       "FactionApplication": {
         "properties": {
@@ -21333,7 +21997,7 @@
   "info": {
     "description": "\n * The development of Torn's API v2 is still ongoing.\n * If selections remain unaltered, they will default to the API v1 version.\n * Unlike API v1, API v2 accepts both selections and IDs as path and query parameters.\n * If any discrepancies or errors are found, please submit a [bug report](https://www.torn.com/forums.php#/p=forums&f=19&b=0&a=0) on the Torn Forums.\n * In case you're using bots to check for changes on openapi.json file, make sure to specificy a custom user-agent header - CloudFlare sometimes prevents requests from default user-agents.",
     "title": "Torn API",
-    "version": "5.2.1"
+    "version": "5.2.2"
   },
   "openapi": "3.1.0",
   "paths": {

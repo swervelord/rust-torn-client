@@ -8,12 +8,18 @@
 // a deterministic patch step. See GENERATED_POLICY.md.
 // =============================================================================
 
+#![allow(non_camel_case_types)]
+
+// Cross-module type imports
+use crate::generated::key::{MarketSelectionName};
+use crate::generated::torn::{ItemId, RequestMetadataWithLinks, UserId};
+
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct AuctionHouseListing {
     pub bids: i32,
     pub buyer: BasicUser,
     pub id: AuctionListingId,
-    pub item: Item,
+    pub item: AuctionHouseListing_Item,
     pub price: i32,
     pub seller: BasicUser,
         /// Timestamp when the auction ended.
@@ -100,7 +106,7 @@ pub struct BazaarRecentFavorites {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct BazaarResponse {
         /// If there's a specific item ID passed or a category chosen, the response will be of type 'BazaarSpecialized', otherwise it will be 'BazaarWeekly'.
-    pub bazaar: Bazaar,
+    pub bazaar: BazaarResponse_Bazaar,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -177,7 +183,7 @@ pub struct ItemMarketListingItemBonus {
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct ItemMarketListingItemDetails {
     pub bonuses: Vec<ItemMarketListingItemBonus>,
-    pub rarity: Option<Rarity>,
+    pub rarity: Option<ItemMarketListingItemDetails_Rarity>,
     pub stats: ItemMarketListingItemStats,
     pub uid: ItemUid,
 }
@@ -286,7 +292,7 @@ pub struct TornItemDetails {
     pub bonuses: Vec<ItemMarketListingItemBonus>,
     pub id: ItemId,
     pub name: String,
-    pub rarity: Option<Rarity>,
+    pub rarity: Option<TornItemDetails_Rarity>,
     pub stats: ItemMarketListingItemStats,
     pub sub_type: Option<TornItemWeaponTypeEnum>,
     #[serde(rename = "type")]
@@ -368,4 +374,39 @@ pub enum TornItemWeaponTypeEnum {
     Slashing,
     #[serde(rename = "Mechanical")]
     Mechanical,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+pub enum AuctionHouseListing_Item {
+    AuctionHouseStackableItem(AuctionHouseStackableItem),
+    TornItemDetails(TornItemDetails),
+}
+
+/// If there's a specific item ID passed or a category chosen, the response will be of type 'BazaarSpecialized', otherwise it will be 'BazaarWeekly'.
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+pub enum BazaarResponse_Bazaar {
+    BazaarWeekly(BazaarWeekly),
+    BazaarSpecialized(BazaarSpecialized),
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum ItemMarketListingItemDetails_Rarity {
+    #[serde(rename = "yellow")]
+    Yellow,
+    #[serde(rename = "orange")]
+    Orange,
+    #[serde(rename = "red")]
+    Red,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+pub enum TornItemDetails_Rarity {
+    #[serde(rename = "yellow")]
+    Yellow,
+    #[serde(rename = "orange")]
+    Orange,
+    #[serde(rename = "red")]
+    Red,
 }

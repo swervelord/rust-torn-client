@@ -8,6 +8,13 @@
 // a deterministic patch step. See GENERATED_POLICY.md.
 // =============================================================================
 
+#![allow(non_camel_case_types)]
+
+// Cross-module type imports
+use crate::generated::common::{FactionId};
+use crate::generated::market::{ItemUid};
+use crate::generated::torn::{ItemId, RequestMetadataWithLinks, UserId};
+
 pub type ChainId = i32;
 
 pub type DirtyBombId = i32;
@@ -276,7 +283,7 @@ pub struct FactionCrimeSlot {
         /// Returns CPR for the player who joined the slot. If the slot is empty (availalbe), it shows your CPR for that slot. This value is 0 for expired crimes.
     pub checkpoint_pass_rate: i32,
         /// Details of item required for the slot, if applicable.
-    pub item_requirement: Option<FactionCrimeSlot_item_requirement>,
+    pub item_requirement: Option<FactionCrimeSlot_ItemRequirement>,
     pub position: String,
     pub position_id: TornOrganizedCrimePositionId,
     pub position_number: i32,
@@ -9224,7 +9231,7 @@ pub struct FactionWarfareDirtyBombTargetFaction {
 pub struct FactionWarfareResponse {
     #[serde(rename = "_metadata")]
     pub metadata: RequestMetadataWithLinks,
-    pub warfare: Warfare,
+    pub warfare: FactionWarfareResponse_Warfare,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -9359,7 +9366,7 @@ pub struct UserStatus {
         /// This field is populated only if the state is 'Traveling'.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub plane_image_type: Option<UserPlaneImageTypeEnum>,
-    pub state: State,
+    pub state: UserStatus_State,
     pub until: Option<i32>,
 }
 
@@ -9386,11 +9393,19 @@ pub enum UserStatusStateEnum {
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct FactionApplication_User_Stats {
+    pub defense: i64,
+    pub dexterity: i64,
+    pub speed: i64,
+    pub strength: i64,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
 pub struct FactionApplication_User {
     pub id: UserId,
     pub level: i32,
     pub name: String,
-    pub stats: Option<FactionApplication_User_stats>,
+    pub stats: Option<FactionApplication_User_Stats>,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -9404,6 +9419,15 @@ pub struct FactionBalance_Faction {
 pub struct FactionChainWarfare_Faction {
     pub id: FactionId,
     pub name: String,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+pub struct FactionCrimeSlot_ItemRequirement {
+    pub id: ItemId,
+        /// Shows if user has the required item.
+    pub is_available: bool,
+        /// Shows if the item is reusable or consumed during the crime.<br><b>Important note: There may be alternative paths which won't consume the item, even if the item is non-reusable.</b>
+    pub is_reusable: bool,
 }
 
 #[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
@@ -9422,4 +9446,21 @@ pub struct FactionRankedWarReportResponse_Rankedwarreport {
 pub struct FactionUpgrades_Core {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub upgrades: Option<Vec<FactionUpgradeDetails>>,
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+pub enum FactionWarfareResponse_Warfare {
+    Variant0(Vec<FactionRankedWarDetails>),
+    Variant1(Vec<FactionTerritoryWarfare>),
+    Variant2(Vec<FactionChainWarfare>),
+    Variant3(Vec<FactionRaidWarfare>),
+    Variant4(Vec<FactionWarfareDirtyBomb>),
+}
+
+#[derive(Debug, Clone, serde::Serialize, serde::Deserialize)]
+#[serde(untagged)]
+pub enum UserStatus_State {
+    UserStatusStateEnum(UserStatusStateEnum),
+    Variant1(String),
 }

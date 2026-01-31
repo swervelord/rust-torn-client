@@ -158,6 +158,11 @@
 //! When using multiple keys, the client tracks limits independently per key
 //! and automatically waits when approaching limits.
 
+// Lint suppressions for library code
+#![allow(dead_code)]
+#![allow(clippy::field_reassign_with_default)]
+#![allow(clippy::manual_strip)]
+
 // Core modules
 pub mod client;
 pub mod config;
